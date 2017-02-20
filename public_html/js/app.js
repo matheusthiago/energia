@@ -1,12 +1,12 @@
 ﻿$(document).ready(function () {
     $.ajax({
-        url: "http://localhost/site/public_html/php/data.php",
+        url: CONEXAO+"/energia/public_html/php/data.php",
         method: "GET",
         success: function (data) {
             console.log(data);
             var label = [];
-            var dado = [];
-            var preco = [];
+            var dado = []; 
+            var preco = []; 
             for (var i in data) {
                 label.push(data[i].diaMes);
                 dado.push(data[i].pot);
