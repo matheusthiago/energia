@@ -27,7 +27,9 @@
         <!-- Chart - aqui chamamos nossa lib que gera o gráfico. -->
         <script src="../js/Chart.js"></script>
         <script src="../js/Chart.bundle.js"></script>
-
+        <script type="text/javascript">
+            var randomnb = function(){ return Math.round(Math.random()*300)};
+        </script>  
 
     </head>
     <body>
@@ -36,6 +38,7 @@
         <div id="wrapper">
             <!-- ***************Area de navegação, partes da esquerda e cima*********************** -->
             <!-- Navigation -->
+                       <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -44,15 +47,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">MTEnergy</a>
+                      <a class="navbar-brand" href="index.html"><img src="../logo.png" alt=""/>
+                  </a>
                 </div>
                 <!-- /.navbar-header -->
 
-
-                <!-- *************** Links de navegação da parte direita*********************** -->
                 <ul class="nav navbar-top-links navbar-right">
-
-                    <!-- ***************Envelope drop down*********************** -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -104,8 +104,6 @@
                         <!-- /.dropdown-messages -->
                     </li>
                     <!-- /.dropdown -->
-
-                    <!-- ***************Barra de status drop down*********************** -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -185,8 +183,6 @@
                         <!-- /.dropdown-tasks -->
                     </li>
                     <!-- /.dropdown -->
-
-                    <!-- ***************Alarmes drop down*********************** -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -247,8 +243,6 @@
                         <!-- /.dropdown-alerts -->
                     </li>
                     <!-- /.dropdown -->
-
-                    <!-- ***************Perfil drop down*********************** -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -271,93 +265,33 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-
-                            <!-- ***************Lado esquerdo*********************** -->
                             <li class="sidebar-search">
                                 <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
+                                 
                                 </div>
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Painel de Controle </a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                                <a href="consumo.html"><i class="fa fa-bolt fa-fw"></i> Consumo</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Relatórios <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="flot.html">Flot Charts</a>
+                                        <a href="relatorio.html">Diario</a>
                                     </li>
                                     <li>
-                                        <a href="morris.html">Morris.js Charts</a>
+                                        <a href="#">Mensal</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
+                            
                             <li>
-                                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-                            </li>
-                            <li>
-                                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="panels-wells.html">Panels and Wells</a>
-                                    </li>
-                                    <li>
-                                        <a href="buttons.html">Buttons</a>
-                                    </li>
-                                    <li>
-                                        <a href="notifications.html">Notifications</a>
-                                    </li>
-                                    <li>
-                                        <a href="typography.html">Typography</a>
-                                    </li>
-                                    <li>
-                                        <a href="icons.html"> Icons</a>
-                                    </li>
-                                    <li>
-                                        <a href="grid.html">Grid</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="#">Second Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Second Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level <span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                        </ul>
-                                        <!-- /.nav-third-level -->
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
+                                <a href="controle.html"><i class="glyphicon glyphicon-lamp"></i>  Controle </a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
@@ -429,70 +363,70 @@
 
         <script type="text/javascript">
             var config = {
-                type: 'line',
-                animation:{
-                    duration:0,
-                    easing:'linear'
-                },
-                data: {
-                    labels: [],
-                    datasets: [{
-                            label: "Consumo",
-                            data: [],
-                            fill: true
-                        }]
-                },
-                options: {
-                    responsive: true,
-                    /*  tooltips: { 
-                     * 
-                     mode: 'label',
-                     callbacks: {
-                     footer: function() {
-                     return '...beforeTitle';
-                     }
-                     
-                     }
-                     }, */
-                    hover: {
-                        mode: 'dataset'
-                    },
-                    scales: {
-                        xAxes: [{
-                                display: true,
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Tempo (S)'
-                                }
+            type: 'line',
+            animation:false,
+            		
+            data: {
+            labels: [],
+            datasets: [{
+            label: "Consumo",
+            data: [],
+            fill: true
+            }]
+            },
+            options: {
+            responsive: true,
+            /*  tooltips: { 
+            * 
+            mode: 'label',
+            callbacks: {
+            footer: function() {
+            return '...beforeTitle';
+            }
 
-                            }],
-                        yAxes: [{
-                                display: true,
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Potência (W)'
-                                },
-                                ticks: {
-                                    suggestedMin: 0,
-                                    suggestedMax: 100
-                                }
-                            }]
-                    }
-                }
+            }
+            }, */
+            hover: {
+            mode: 'dataset'
+            },
+            scales: {
+            xAxes: [{
+            display: true,
+            scaleLabel: {
+            display: true,
+            labelString: 'Tempo (S)'
+            }
+
+            }],
+            yAxes: [{
+            display: true,
+            scaleLabel: {
+            display: true,
+            labelString: 'Potência (W)'
+            },
+            ticks: {
+            suggestedMin: 0,
+            suggestedMax: 100
+            }
+            }]
+            }
+            }
             };
 
             $.each(config.data.datasets, function (i, dataset) {
-                dataset.tension = 0;
-                dataset.borderColor = 'rgba(11,98,165,1)';
-                dataset.backgroundColor = 'rgba(11,98,165,0.50)';
-                dataset.pointBorderColor = 'rgba(11,8,165,0.75)';
-                dataset.pointBackgroundColor = 'rgba(11,8,165,0.75)';
-                dataset.pointBorderWidth = 1;
+            dataset.tension = 0;
+            dataset.borderCapStyle='square';
+            dataset.capBezierPoints=false;
+            dataset.borderColor = 'rgba(11,98,165,1)';
+            dataset.backgroundColor = 'rgba(11,98,165,0.70)';
+            dataset.spanGaps=true;
+            dataset.pointRadius=0;
+            dataset.spanGaps=true;
             });
 
             window.onload = function () {
-                var ctx = document.getElementById("myChart").getContext("2d");
-                window.myLine = new Chart(ctx, config);
+            var ctx = document.getElementById("myChart").getContext("2d");
+            window.myLine = new Chart(ctx, config);
             };
         </script>
 
@@ -500,28 +434,28 @@
             var socket = io(CONEXAO+":8080"); // ip servidor node
             //chamada da função dadosArduino que recebe os dados.
             socket.on("dadosArduino", function (dado) {
-                // Exibe dados recebedos no console.
-                //console.log(dado);
-                /**
-                 * Seta os valores recebidos da função dadosArduino e incrementa o contador, no * gráfico.. 
-                 * dado.valor responsável pelo eixo y do gráfico.
-                 * contador responsável pelo eixo x do gráfico. 
-                 */
-                if (config.data.datasets.length > 0) {
-                    if (config.data.labels.length < 20)
-                        config.data.labels.push(dado.tempo);
-                    else {
-                        config.data.labels.push(dado.tempo);
-                        config.data.labels.splice(0, 1);
-                        config.data.datasets.forEach(function (dataset, datasetIndex) {
-                            dataset.data.shift();
-                        });
-                    }
-                    $.each(config.data.datasets, function (i, dataset) {
-                        dataset.data.push(dado.valor);
-                    });
-                    window.myLine.update();
-                }
+            // Exibe dados recebedos no console.
+            //console.log(dado);
+            /**
+            * Seta os valores recebidos da função dadosArduino e incrementa o contador, no * gráfico.. 
+            * dado.valor responsável pelo eixo y do gráfico.
+            * contador responsável pelo eixo x do gráfico. 
+            */
+            if (config.data.datasets.length > 0) {
+            if (config.data.labels.length < 20)
+            config.data.labels.push(dado.tempo);
+            else {
+            config.data.labels.push(dado.tempo);
+            config.data.labels.splice(0, 1);
+            config.data.datasets.forEach(function (dataset, datasetIndex) {
+            dataset.data.shift();
+            });
+            }
+            $.each(config.data.datasets, function (i, dataset) {
+            dataset.data.push(dado.valor);
+            });
+            window.myLine.update();
+            }
             });
         </script>
 
