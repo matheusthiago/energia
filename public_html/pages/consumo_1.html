@@ -6,13 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Relatórios</title>
-        <style type="text/css">
-            #chart-container { 
-                width: auto;
-                height: auto;
-            }
-        </style>
+        <title>Consumo Momentâneo</title>
         <!-- ***************importação das folhas de estilos*********************** -->
         <!-- Bootstrap Core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,38 +18,25 @@
         <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
         <!-- Custom Fonts -->
         <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <!-- ****************************************************-->
 
-
-        <!-- ***************Scripts para o site ***************-->
-        <!-- arquivo de configuracao -->
-        <script type="text/javascript" src="../js/config.js"></script>
-        <!-- jQuery    -->
-        <script type="text/javascript" src="../vendor/jquery/jquery.min.js"></script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-        <!-- Scripts do Grafico -->
-        <script type="text/javascript" src="../js/Chart.min.js"></script>
-        <!-- Scripts MT-->
-        <script type="text/javascript" src="../js/app.js"></script>
-        <script type="text/javascript" src="../js/preco.js"></script>
-        <script src="../js/funcoes.js"></script>
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-        <!-- Custom Theme JavaScript -->
-        <script src="../dist/js/sb-admin-2.js"></script>
-        <!-- ****************************************************-->
+        <script src="../js/config.js"></script>
+        <!-- ***************importação dos scripts que fazem a comunicação com o servidor, e que geram o gráfico*********************** -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <!-- Socket.io - aqui chamamos nosso socket.-->
+        <script src="../js/socket.io.js"></script>  
+        <!-- Chart - aqui chamamos nossa lib que gera o gráfico. -->
+        <script src="../js/Chart.js"></script>
+        <script src="../js/Chart.bundle.js"></script>
+        <script type="text/javascript">
+            var randomnb = function(){ return Math.round(Math.random()*300)};
+        </script>  
 
     </head>
-
     <body>
 
         <!-- *************** Corpo da página HTML*********************** -->
         <div id="wrapper">
-
-
             <!-- ***************Area de navegação, partes da esquerda e cima*********************** -->
-            <!-- Navigation -->
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -65,12 +46,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                      <a class="navbar-brand" href="index.html"><img src="../logo.png" alt=""/>
-                  </a>
+                    <a class="navbar-brand" href="index.html">MTEnergy</a>
                 </div>
                 <!-- /.navbar-header -->
 
+
+                <!-- *************** Links de navegação da parte direita*********************** -->
                 <ul class="nav navbar-top-links navbar-right">
+
+                    <!-- ***************Envelope drop down*********************** -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -122,6 +106,8 @@
                         <!-- /.dropdown-messages -->
                     </li>
                     <!-- /.dropdown -->
+
+                    <!-- ***************Barra de status drop down*********************** -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -201,6 +187,8 @@
                         <!-- /.dropdown-tasks -->
                     </li>
                     <!-- /.dropdown -->
+
+                    <!-- ***************Alarmes drop down*********************** -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -261,6 +249,8 @@
                         <!-- /.dropdown-alerts -->
                     </li>
                     <!-- /.dropdown -->
+
+                    <!-- ***************Perfil drop down*********************** -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -283,33 +273,93 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
+
+                            <!-- ***************Lado esquerdo*********************** -->
                             <li class="sidebar-search">
                                 <div class="input-group custom-search-form">
-                                 
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
                                 </div>
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Painel de Controle </a>
+                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             <li>
-                                <a href="consumo.html"><i class="fa fa-bolt fa-fw"></i> Consumo</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Relatórios <span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="relatorio.html">Diario</a>
+                                        <a href="flot.html">Flot Charts</a>
                                     </li>
                                     <li>
-                                        <a href="#">Mensal</a>
+                                        <a href="morris.html">Morris.js Charts</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
-                            
                             <li>
-                                <a href="controle.html"><i class="glyphicon glyphicon-lamp"></i>  Controle </a>
+                                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            </li>
+                            <li>
+                                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="panels-wells.html">Panels and Wells</a>
+                                    </li>
+                                    <li>
+                                        <a href="buttons.html">Buttons</a>
+                                    </li>
+                                    <li>
+                                        <a href="notifications.html">Notifications</a>
+                                    </li>
+                                    <li>
+                                        <a href="typography.html">Typography</a>
+                                    </li>
+                                    <li>
+                                        <a href="icons.html"> Icons</a>
+                                    </li>
+                                    <li>
+                                        <a href="grid.html">Grid</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#">Second Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Second Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level <span class="fa arrow"></span></a>
+                                        <ul class="nav nav-third-level">
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                        </ul>
+                                        <!-- /.nav-third-level -->
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
@@ -337,7 +387,7 @@
                 <!-- *************** Titulo da página*********************** -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Relatório</h1> 
+                        <h1 class="page-header">Consumo</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -350,33 +400,18 @@
                         <div class="panel panel-default">
                             <!-- *************** Subtititulo *********************** -->
                             <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"> </i> Relatórios
-                                <div class="pull-right">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Ações
-                                            <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right" role="menu">
-                                            <li><a id="action1" onclick="mudaGrafico('chart-container')">Mudar para a vizualização em R$</a>
-                                            </li>
-                                            <li><a href="#">Another action</a>
-                                            </li>
-                                            <li><a href="#">Something else here</a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                Monitor de Consumo Momentâneo
                             </div>
                             <!-- /.panel-heading -->
                             <!-- *************** Corpo da página*********************** -->
                             <div class="panel-body">
-                                <div id="chart-container">
-                                    <canvas id="mycanvas" style="width: 100%; height: 75%;" ></canvas>
+                                <div class="flot-chart">
+                                    <canvas id="myChart" style="width: 100%; height: 75%;"></canvas> 
                                 </div>
+                            </div>
+                            <div>
+                                <canvas id="canvas" style="width: 25%; height: 25%;"></canvas> 
+
                             </div>
                             <!-- /.panel-body -->
                         </div>
@@ -394,6 +429,121 @@
         </div>
         <!-- /#wrapper -->
 
+        <script type="text/javascript">
+            var config = {
+            type: 'line',
+            animation:{
+            duration:0,
+            easing:'line'
+            },
+            data: {
+            labels: [],
+            datasets: [{
+            label: "Consumo",
+            data: [],
+            fill: true
+            }]
+            },
+            options: {
+            responsive: true,
+            /*  tooltips: { 
+            * 
+            mode: 'label',
+            callbacks: {
+            footer: function() {
+            return '...beforeTitle';
+            }
+
+            }
+            }, */
+            hover: {
+            mode: 'dataset'
+            },
+            scales: {
+            xAxes: [{
+            display: true,
+            scaleLabel: {
+            display: true,
+            labelString: 'Tempo (S)'
+            }
+
+            }],
+            yAxes: [{
+            display: true,
+            scaleLabel: {
+            display: true,
+            labelString: 'Potência (W)'
+            },
+            ticks: {
+            suggestedMin: 0,
+            suggestedMax: 100
+            }
+            }]
+            }
+            }
+            };
+
+            $.each(config.data.datasets, function (i, dataset) {
+            dataset.tension = 0;
+            dataset.borderCapStyle='square';
+            dataset.capBezierPoints=false;
+            dataset.borderColor = 'rgba(11,98,165,1)';
+            dataset.backgroundColor = 'rgba(11,98,165,0.70)';
+            dataset.spanGaps=true;
+            dataset.pointRadius=0;
+            dataset.spanGaps=true;
+            });
+
+            window.onload = function () {
+            var ctx = document.getElementById("myChart").getContext("2d");
+            window.myLine = new Chart(ctx, config);
+            };
+        </script>
+
+        <script type="text/javascript">
+            var socket = io(CONEXAO+":8080"); // ip servidor node
+            //chamada da função dadosArduino que recebe os dados.
+            socket.on("dadosArduino", function (dado) {
+            // Exibe dados recebedos no console.
+            //console.log(dado);
+            /**
+            * Seta os valores recebidos da função dadosArduino e incrementa o contador, no * gráfico.. 
+            * dado.valor responsável pelo eixo y do gráfico.
+            * contador responsável pelo eixo x do gráfico. 
+            */
+            if (config.data.datasets.length > 0) {
+            if (config.data.labels.length < 20)
+            config.data.labels.push(dado.tempo);
+            else {
+            config.data.labels.push(dado.tempo);
+            config.data.labels.splice(0, 1);
+            config.data.datasets.forEach(function (dataset, datasetIndex) {
+            dataset.data.shift();
+            });
+            }
+            $.each(config.data.datasets, function (i, dataset) {
+            dataset.data.push(dado.valor);
+            });
+            window.myLine.update();
+            }
+            });
+        </script>
+
+
+
+
+
+        <!-- jQuery -->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="../dist/js/sb-admin-2.js"></script>
 
     </body>
 
