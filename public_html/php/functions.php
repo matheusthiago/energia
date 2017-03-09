@@ -8,7 +8,7 @@ function sec_session_start() {
     $httponly = true;
     // Assim você força a sessão a usar apenas cookies. 
    if (ini_set('session.use_only_cookies', 1) === FALSE) {
-        header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
+        header("Location:  error.php?err=Could not initiate a safe session (ini_set)");
         exit();
     }
     // Obtém params de cookies atualizados.
@@ -48,7 +48,7 @@ function login($email, $password, $mysqli) {
             if (checkbrute($user_id, $mysqli) == true) {
                 // A conta está bloqueada 
                 // Envia um email ao usuário informando que a conta está bloqueada 
-                retorna false (falso);
+                return false;
             } else {
                 // Verifica se a senha confere com o que consta no banco de dados
                 // a senha do usuário é enviada.

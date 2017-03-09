@@ -1,5 +1,5 @@
 <?php
-include_once '../php/db_connect.php';
+/*include_once '../php/db_connect.php';
 include_once '../php/functions.php';
  
 sec_session_start();
@@ -10,7 +10,7 @@ if (login_check($mysqli) == true) {
 } else {
     echo 'não logado com sucesso bd';
     $logged = 'out';
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html>
