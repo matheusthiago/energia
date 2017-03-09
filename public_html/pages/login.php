@@ -6,7 +6,9 @@ sec_session_start();
  
 if (login_check($mysqli) == true) {
     $logged = 'in';
+    echo 'logado com sucesso bd';
 } else {
+    echo 'não logado com sucesso bd';
     $logged = 'out';
 }
 ?>
