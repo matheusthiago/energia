@@ -13,7 +13,7 @@ if (isset($_POST['email'], $_POST['p'])) {
         header('Location: ../pages/protected_page.php');
     } else {
         // Falha de login 
-        header('Location: ../pages/index.php?error=1');
+        header('Location: ../pages/login.php');
     }
 } else {
     // As variáveis POST corretas não foram enviadas para esta página. 
