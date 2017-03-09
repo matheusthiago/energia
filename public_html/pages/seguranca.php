@@ -21,7 +21,7 @@ $_SG['servidor'] = 'localhost';    // Servidor MySQL
 $_SG['usuario'] = 'root';          // Usuário MySQL
 $_SG['senha'] = 'r007';                // Senha MySQL
 $_SG['banco'] = 'energy';            // Banco de dados MySQL
-$_SG['paginaLogin'] = 'login.php'; // Página de login
+$_SG['paginaLogin'] = 'login.html'; // Página de login
 $_SG['tabela'] = 'usuarios';       // Nome da tabela onde os usuários são salvos
 // ==============================
 // ======================================
