@@ -10,4 +10,6 @@ define("DATABASE", "secure_login");    // O nome do banco de dados.
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "member");
  
-define("SECURE", FALSE);    // ESTRITAMENTE PARA DESENVOLVIMENTO!!!!
+
+
+define("SECURE", FALSE);     // ESTRITAMENTE PARA DESENVOLVIMENTO!!!!
