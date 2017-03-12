@@ -2,6 +2,9 @@ function formhash(form, password) {
     // Crie um novo elemento de input, o qual será o campo para a senha com hash. 
     var p = document.createElement("input");
  
+ 
+ 
+ 
     // Adicione um novo elemento ao nosso formulário. 
     form.appendChild(p);
     p.name = "p";

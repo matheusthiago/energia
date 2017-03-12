@@ -27,9 +27,7 @@
         <!-- Chart - aqui chamamos nossa lib que gera o gráfico. -->
         <script src="../js/Chart.js"></script>
         <script src="../js/Chart.bundle.js"></script>
-        <script type="text/javascript">
-            var randomnb = function(){ return Math.round(Math.random()*300)};
-        </script>  
+
 
     </head>
     <body>
@@ -431,101 +429,91 @@
 
         <script type="text/javascript">
             var config = {
-            type: 'line',
-            animation:{
-            duration:0,
-            easing:'line'
-            },
-            data: {
-            labels: [],
-            datasets: [{
-            label: "Consumo",
-            data: [],
-            fill: true
-            }]
-            },
-            options: {
-            responsive: true,
-            /*  tooltips: { 
-            * 
-            mode: 'label',
-            callbacks: {
-            footer: function() {
-            return '...beforeTitle';
-            }
+                type: 'line',
+                animation: {
+                    duration: 0,
+                    easing: 'line'
+                },
+                data: {
+                    labels: [],
+                    datasets: [{
+                            label: "Consumo",
+                            data: [],
+                            fill: true
+                        }]
+                },
+                options: {
+                    responsive: true,
+                    hover: {
+                        mode: 'dataset'
+                    },
+                    scales: {
+                        xAxes: [{
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Tempo (S)'
+                                }
 
-            }
-            }, */
-            hover: {
-            mode: 'dataset'
-            },
-            scales: {
-            xAxes: [{
-            display: true,
-            scaleLabel: {
-            display: true,
-            labelString: 'Tempo (S)'
-            }
-
-            }],
-            yAxes: [{
-            display: true,
-            scaleLabel: {
-            display: true,
-            labelString: 'Potência (W)'
-            },
-            ticks: {
-            suggestedMin: 0,
-            suggestedMax: 100
-            }
-            }]
-            }
-            }
+                            }],
+                        yAxes: [{
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Potência (W)'
+                                },
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax: 100
+                                }
+                            }]
+                    }
+                }
             };
 
             $.each(config.data.datasets, function (i, dataset) {
-            dataset.tension = 0;
-            dataset.borderCapStyle='square';
-            dataset.capBezierPoints=false;
-            dataset.borderColor = 'rgba(11,98,165,1)';
-            dataset.backgroundColor = 'rgba(11,98,165,0.70)';
-            dataset.spanGaps=true;
-            dataset.pointRadius=0;
-            dataset.spanGaps=true;
+                dataset.tension = 0;
+                dataset.borderCapStyle = 'square';
+                dataset.capBezierPoints = false;
+                dataset.borderColor = 'rgba(11,98,165,1)';
+                dataset.backgroundColor = 'rgba(11,98,165,0.70)';
+                dataset.spanGaps = true;
+                dataset.pointRadius = 0;
+                dataset.spanGaps = true;
             });
 
             window.onload = function () {
-            var ctx = document.getElementById("myChart").getContext("2d");
-            window.myLine = new Chart(ctx, config);
+                var ctx = document.getElementById("myChart").getContext("2d");
+                window.myLine = new Chart(ctx, config);
             };
         </script>
 
         <script type="text/javascript">
-            var socket = io(CONEXAO+":8080"); // ip servidor node
+            var socket = io(CONEXAO + ":8080"); // ip servidor node
             //chamada da função dadosArduino que recebe os dados.
             socket.on("dadosArduino", function (dado) {
-            // Exibe dados recebedos no console.
-            //console.log(dado);
-            /**
-            * Seta os valores recebidos da função dadosArduino e incrementa o contador, no * gráfico.. 
-            * dado.valor responsável pelo eixo y do gráfico.
-            * contador responsável pelo eixo x do gráfico. 
-            */
-            if (config.data.datasets.length > 0) {
-            if (config.data.labels.length < 20)
-            config.data.labels.push(dado.tempo);
-            else {
-            config.data.labels.push(dado.tempo);
-            config.data.labels.splice(0, 1);
-            config.data.datasets.forEach(function (dataset, datasetIndex) {
-            dataset.data.shift();
-            });
-            }
-            $.each(config.data.datasets, function (i, dataset) {
-            dataset.data.push(dado.valor);
-            });
-            window.myLine.update();
-            }
+                // Exibe dados recebedos no console.
+                //console.log(dado);
+                /**
+                 * Seta os valores recebidos da função dadosArduino e incrementa o contador, no * gráfico.. 
+                 * dado.valor responsável pelo eixo y do gráfico.
+                 * contador responsável pelo eixo x do gráfico. 
+                 */
+                if (config.data.datasets.length > 0) {
+                    if (config.data.labels.length < 20)
+                        config.data.labels.push(dado.tempo);
+                    else {
+                        config.data.labels.push(dado.tempo);
+                        config.data.labels.splice(0, 1);
+                        config.data.datasets.forEach(function (dataset, datasetIndex) {
+                            dataset.data.shift();
+                        });
+                    }
+                    $.each(config.data.datasets, function (i, dataset) {
+                        dataset.data.push(dado.valor);
+                    });
+                    window.myLine.update();
+                }
             });
         </script>
 

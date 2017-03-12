@@ -1116,7 +1116,7 @@ $(function() {
 
     function getRandomData() {
         if (data.length) {
-            data = data.slice(1);
+            data = 100;
         }
 
         while (data.length < maximum) {
