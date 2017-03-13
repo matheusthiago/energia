@@ -21,8 +21,7 @@ if (!$mysqli) {
 //$query = sprintf("SELECT concat(DAY(horario), '/', MONTH(horario)) as diaMes, DAY(horario) as dia, ROUND(SUM(potencia/1000),2) AS pot, 
 //ROUND(SUM(potencia/1000)/(3600*24)*(0.62378769),2) as preco FROM medidas group by dia");
 
-$query = sprintf("SELECT concat( DAY( horario ) , '/', MONTH( horario ) ) AS diaMes, DAY( horario ) AS dia, ROUND((SUM(potencia)/3600000)*(0.62378769 ),2) AS preco FROM medidas GROUP BY dia ORDER BY `diaMes` ASC");
-//execute query
+$query = sprintf("SELECT concat(DAY( horario ), '/', MONTH( horario )) AS diaMes, DAY( horario ) AS dia, ROUND((SUM(potencia)/3600000)*(0.62378769 ),2) AS preco FROM medidas GROUP BY dia ORDER BY YEAR(horario) ASC, MONTH(horario) ASC, dia ASC LIMIT 30");//execute query
 $result = $mysqli->query($query);
 
 //loop through the returned data
@@ -30,7 +29,7 @@ $data = array();
 foreach ($result as $row) {
     $data[] = $row;
 }
- $data= array_slice($data , count($data)-30, 30);
+// $data= array_slice($data , count($data)-30, 30);
 //free memory associated with result
 $result->close();
 
