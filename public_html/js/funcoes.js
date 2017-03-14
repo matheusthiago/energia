@@ -6,7 +6,6 @@
 
 
 function mudaGrafico(canvas) {
-    $(document).ready(function () {
         $.ajax({
             url: CONEXAO + "/energia/public_html/php/data.php",
             method: "GET",
@@ -73,7 +72,6 @@ function mudaGrafico(canvas) {
                 console.log(data);
             }
         });
-    });
     var a = "<canvas id='canvasChartPreco'></canvas>";
     document.getElementById(canvas).innerHTML = a;
 }
@@ -99,6 +97,11 @@ jQuery(document).ready(function($){
             }
         }
     }
+    $('#action1').click(function(e){
+        e.preventDefault();
+        mudaGrafico('chart-container');
+        
+    });
     $('.botao').click(function(e){
         e.preventDefault();
         var status = $(this).attr('data-status');
