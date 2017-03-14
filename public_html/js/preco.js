@@ -1,12 +1,12 @@
 ﻿$(document).ready(function () {
     $.ajax({
-        url: CONEXAO+"/energia/public_html/php/data.php",
+        url: CONEXAO + "/energia/public_html/php/data.php",
         method: "GET",
         success: function (data) {
             console.log(data);
             //alert('alerta');
             var label = [];
-            var dado = []; 
+            var dado = [];
             var preco = [];
             for (var i in data) {
                 label.push(data[i].diaMes);
@@ -33,10 +33,6 @@
                         callbacks: {
                             title: function () {
                                 return config.data.datasets.label;
-                            },
-                            footer: function () {
-                                var a = preco [0];
-                                return 'Preço estimado:' + a + ' R$';
                             }
                         }
                     },
