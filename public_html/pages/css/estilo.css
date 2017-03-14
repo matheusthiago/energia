@@ -7,7 +7,7 @@ and open the template in the editor.
     Created on : 15/02/2017, 13:48:06
     Author     : mt
 */
-#grafico{
+#mycanvas{
     overflow-x: auto;
     overflow-y: hidden;
 }
