@@ -31,7 +31,7 @@ $(document).ready(function () {
                     showLines: true,
                 animation: true,
                 legend: {
-                    display: false
+                    display: true
                 },
                     responsive: true,
                     tooltips: {
