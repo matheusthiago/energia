@@ -52,7 +52,7 @@ $(document).ready(function () {
                                     labelString: 'Preço R$)'
                                 },
                                 ticks: {
-                                    beginAtZero: false
+                                    beginAtZero: true
                                 }
                             }]
                     }
