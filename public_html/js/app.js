@@ -19,7 +19,7 @@ $(document).ready(function () {
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Consumo '+dia[1] +'R$',
+                            label: 'Consumo '+dia[1],
                             backgroundColor: 'rgba(91, 184, 93, 0.75)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(91, 184, 93, 1)',
@@ -28,6 +28,11 @@ $(document).ready(function () {
                         }]
                 },
                 options: {
+                    showLines: true,
+                animation: true,
+                legend: {
+                    display: false
+                },
                     responsive: true,
                     tooltips: {
                         mode: 'label',
