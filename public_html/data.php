@@ -16,7 +16,9 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT concat(DAY(horario), '/', MONTH(horario)) AS day, SUM(potencia) AS pot FROM medidas GROUP BY DAY(horario) ASC");
+$query = sprintf("SELECT ROUND(SUM(potencia)/(3600000)*(0.62378769 ),2) AS preco, HOUR(horario) as hora, date_format(curdate(), '%d-%m-%y') as dia from medidas where date(horario)= curdate() group by hora asc");
+
+////execute query
 //$query = sprintf("SELECT DATE_FORMAT(horario,'%d') AS dia, SUM(potencia) AS pot FROM medidas");
 
 //execute query
