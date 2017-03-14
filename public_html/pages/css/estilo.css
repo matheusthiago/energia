@@ -12,7 +12,7 @@ and open the template in the editor.
     overflow-y: hidden;
 } 
 #chart-container{
-    height: 384px;
+    height: auto;
     width: 996px;
 }
 .panel-primary > a > .panel-heading{ 
