@@ -33,7 +33,7 @@ $(document).ready(function () {
                         mode: 'label',
                         callbacks: {
                             title: function () {
-                                return config.data.datasets.label;
+                                return (config.data.datasets.label+"R$");
                             }                        }
                     },
                     scales: {
