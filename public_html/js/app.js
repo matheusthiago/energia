@@ -46,7 +46,7 @@ $(document).ready(function () {
                                 display: true,
                                 scaleLabel: {
                                     display: true,
-                                    labelString: 'Dia/Mês'
+                                    labelString: 'Hora'
                                 }
 
                             }],
@@ -54,7 +54,7 @@ $(document).ready(function () {
                                 display: true,
                                 scaleLabel: {
                                     display: true,
-                                    labelString: 'Potência (Kw)'
+                                    labelString: 'Pre�o R$)'
                                 },
                                 ticks: {
                                     beginAtZero: true
