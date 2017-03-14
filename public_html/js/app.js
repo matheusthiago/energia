@@ -28,11 +28,6 @@ $(document).ready(function () {
                         }]
                 },
                 options: {
-                    showLines: true,
-                animation: true,
-                legend: {
-                    display: true
-                },
                     responsive: true,
                     tooltips: {
                         mode: 'label',
