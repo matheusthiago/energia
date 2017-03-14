@@ -29,9 +29,6 @@ $(document).ready(function () {
                 },
                 options: {
                     responsive: true,
-                    hover: {
-                        mode ='index'
-                    },
                     tooltips: {
                         mode: 'label',
                         callbacks: {
