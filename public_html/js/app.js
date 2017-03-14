@@ -19,7 +19,7 @@ $(document).ready(function () {
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Consumo no dia '+dia[1],
+                            label: 'Consumo '+dia[1] +'R$',
                             backgroundColor: 'rgba(91, 184, 93, 0.75)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(91, 184, 93, 1)',
@@ -33,7 +33,7 @@ $(document).ready(function () {
                         mode: 'label',
                         callbacks: {
                             title: function () {
-                                return (config.data.datasets.label+"R$");
+                                return config.data.datasets.label;
                             }                        }
                     },
                     scales: {
