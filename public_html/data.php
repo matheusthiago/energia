@@ -14,10 +14,10 @@ $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if(!$mysqli){
 	die("Connection failed: " . $mysqli->error);
 }
+//SELECT date(horario) as date, ROUND(SUM(potencia)/(3600000)*(0.62378769 ),2) AS preco, HOUR(horario) as hora, DATE_FORMAT(CURDATE(), '%d-%m-%y') as dia from medidas where DATE(horario)= CURDATE() GROUP BY hora ASC
 
 //query to get data from the table
-$query = sprintf("SELECT ROUND(SUM(potencia)/(3600000)*(0.62378769 ),2) AS preco, HOUR(horario) as hora, date_format(curdate(), '%d-%m-%y') as dia from medidas where date(horario)= curdate() group by hora asc");
-
+$query = sprintf("SELECT date(horario) as dia, ROUND(SUM(potencia)/(3600000)*(0.62378769 ),2) AS preco, HOUR(horario) as hora from medidas where DATE(horario)=CURDATE() GROUP BY hora ASC");
 ////execute query
 //$query = sprintf("SELECT DATE_FORMAT(horario,'%d') AS dia, SUM(potencia) AS pot FROM medidas");
 
