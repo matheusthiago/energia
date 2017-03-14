@@ -12,8 +12,8 @@ and open the template in the editor.
     overflow-y: hidden;
 }
 #chart-container{
-    height: 328px;
-    width: 630px;
+    height: 384px;
+    width: 996px;
 }
 .panel-primary > a > .panel-heading{ 
     background-color: #337ab7;
