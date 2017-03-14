@@ -10,10 +10,10 @@ and open the template in the editor.
 #grafico{
     overflow-x: auto;
     overflow-y: hidden;
-}
+} 
 #chart-container{
-    height: 328px;
-    width: 630px;
+    height: auto;
+    width: auto;
 }
 .panel-primary > a > .panel-heading{ 
     background-color: #337ab7;
