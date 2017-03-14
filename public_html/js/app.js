@@ -1,16 +1,17 @@
-﻿$(document).ready(function () {
+$(document).ready(function () {
     $.ajax({
-        url: CONEXAO+"/energia/public_html/php/data.php",
+        url: CONEXAO+"/energia/public_html/php/data2.php",
         method: "GET",
         success: function (data) {
             console.log(data);
             var label = [];
             var dado = []; 
             var preco = []; 
+            var dia=[];
             for (var i in data) {
-                label.push(data[i].diaMes);
-                dado.push(data[i].pot);
-                preco.push(data[i].preco);
+                label.push(data[i].hora);
+                dado.push(data[i].preco);
+                dia.push(data[i].dia);
             }
 
             var config = {
@@ -18,7 +19,7 @@
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Total de potência consumida no dia',
+                            label: 'Consumo por hora na data '+dia[1],
                             backgroundColor: 'rgba(91, 184, 93, 0.75)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(91, 184, 93, 1)',
@@ -34,10 +35,10 @@
                             title: function () {
                                 return config.data.datasets.label;
                             },
-                            footer: function () {
+                           /* footer: function () {
                                 var a = preco [0];
                                 return 'Preço estimado:' + a + ' R$';
-                            }
+                            }*/
                         }
                     },
                     scales: {
