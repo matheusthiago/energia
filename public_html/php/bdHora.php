@@ -19,14 +19,10 @@ if ($mysqli->connect_error) {
 $hh=11;
 $dd=11;
 $mm=11;
-$yy=1111;
-$pot=strval(1200);
-$id.=strval($hh);
-$id.=strval($dd);
-$id.=strval($mm);
-$id.=strval($yy);
-echo("id: "+$hh.$dd.$mm.$yy);
-//$sql = "INSERT INTO medidasHora(id,potencia) VALUES ('+$id+',12000)";
+$yy=1101;
+$pot=1200;
+$id=$hh.$dd.$mm.$yy;
+$sql = "INSERT INTO medidasHora(id,potencia) VALUES ('+$id+','+$pot+')";
 
 if ($mysqli->query($sql) === TRUE) {
     echo "Os dados foram salvos com sucesso";
