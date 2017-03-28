@@ -21,10 +21,10 @@ $dd=00;
 $mm=00;
 $yy=0000;
 $pot=1200;
-$id.=string(hh);
-$id.=string(dd);
-$id.=string(mm);
-$id.=string(yy);
+$id.=strval(hh);
+$id.=strval(dd);
+$id.=strval(mm);
+$id.=strval(yy);
 $sql = "INSERT INTO medidasHora(id,potencia) VALUES ('"+$id+"','"+$pot+"')";
 
 if ($mysqli->query($sql) === TRUE) {
