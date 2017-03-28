@@ -21,10 +21,10 @@ $dd=11;
 $mm=11;
 $yy=1111;
 $pot=strval(1200);
-$id.=strval(hh);
-$id.=strval(dd);
-$id.=strval(mm);
-$id.=strval(yy);
+$id.=strval($hh);
+$id.=strval($dd);
+$id.=strval($mm);
+$id.=strval($yy);
 echo("id: "+$id);
 //$sql = "INSERT INTO medidasHora(id,potencia) VALUES ('"+$id+"','12000')";
 
