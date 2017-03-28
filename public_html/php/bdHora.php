@@ -19,9 +19,10 @@ if ($mysqli->connect_error) {
 $hh=11;
 $dd=11;
 $mm=11;
-$yy=1101;
+$yy=1171;
 $pot=1200;
 $id=$hh.$dd.$mm.$yy;
+echo $id;
 $sql = "INSERT INTO medidasHora(id,potencia) VALUES ('+$id+','+$pot+')";
 
 if ($mysqli->query($sql) === TRUE) {
