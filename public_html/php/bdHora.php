@@ -23,7 +23,7 @@ $yy=1171;
 $pot=1200;
 $id=$hh.$dd.$mm.$yy;
 echo $id;
-$sql = "INSERT INTO medidasHora(id,potencia) VALUES ('+$id+','+$pot+')";
+$sql = "INSERT INTO medidasHora(id,potencia) VALUES ('$id','+$pot+')";
 
 if ($mysqli->query($sql) === TRUE) {
     echo "Os dados foram salvos com sucesso";
