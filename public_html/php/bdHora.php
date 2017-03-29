@@ -27,8 +27,8 @@ foreach ($result as $row) {
     $data[] = $row;
 }
 echo "teste";
-echo $row[0];
-echo $row[1] ;
+echo $data;
+echo $row;
 //$result = $mysqli->query($query);
 /*$data = array();
 foreach ($result as $row) {
