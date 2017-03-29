@@ -20,8 +20,7 @@ $sql=mysql_query("select concat((hour(horario)),(day(horario)),(month(horario)),
     ROUND(SUM(potencia)/(3600000),2) as kwh,
     from medidas 
     where(curdate()=date(horario) and hour(horario)=hour(now()))");
-$total = $row['id'];
-echo $total;
+print_r($sql);
 /*
 $query=sprintf("select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id,
     ROUND(SUM(potencia)/(3600000),2) as kwh,
