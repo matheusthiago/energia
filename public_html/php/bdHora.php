@@ -17,7 +17,7 @@ if ($mysqli->connect_error) {
     die("Falha na conecao com o bd: " . $mysqli->connect_error);
 }
 
-$row="select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id,
+$result="select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id,
     ROUND(SUM(potencia)/(3600000),2) as kwh,
     from medidas 
     where(curdate()=date(horario) and hour(horario)=hour(now()))";
@@ -34,7 +34,7 @@ echo "sql".$data;
           echo $row[1] ;
        }
 
- $hh=11;
+/*$hh=11;
  $dd=11;
 $mm=11;
 $yy=1171;
@@ -48,6 +48,6 @@ if ($mysqli->query($sql) === TRUE) {
 } else {
     echo "Erro de salvamento no bd. Error: " . $sql . "<br>" . $mysqli->error;
 }
-
+*/
 $mysqli->close();
 ?>
