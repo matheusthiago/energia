@@ -15,7 +15,18 @@ $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 // Check connection
 if ($mysqli->connect_error) {
     die("Falha na conecao com o bd: " . $mysqli->connect_error);
-} 
+}
+
+$select="select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id,
+    ROUND(SUM(potencia)/(3600000),2) as kwh,
+    from medidas 
+    where(curdate()=date(horario) and hour(horario)=hour(now()))";
+$result = $mysqli->query($query);
+$data = array();
+foreach ($result as $row) {
+    $data[] = $row;
+}
+echo "sql".$data;
 $hh=11;
 $dd=11;
 $mm=11;
@@ -23,7 +34,7 @@ $yy=1171;
 $pot=1200;
 $id=$hh.$dd.$mm.$yy;
 echo $id;
-$sql = "INSERT INTO medidasHora(id,potencia) VALUES ('$id','+$pot+')";
+//$sql = "INSERT INTO medidasHora(id,potencia) VALUES ('$id','+$pot+')";
 
 if ($mysqli->query($sql) === TRUE) {
     echo "Os dados foram salvos com sucesso";
