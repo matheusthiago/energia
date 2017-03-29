@@ -17,10 +17,17 @@ if ($mysqli->connect_error) {
     die("Falha na conecao com o bd: " . $mysqli->connect_error);
 }
 
-$result="select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id,
+$query="select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id,
     ROUND(SUM(potencia)/(3600000),2) as kwh,
     from medidas 
     where(curdate()=date(horario) and hour(horario)=hour(now()))";
+$result = $mysqli->query($query);
+$data = array();
+foreach ($result as $row) {
+    $data[] = $row;
+}
+          echo $row[0];
+          echo $row[1] ;
 //$result = $mysqli->query($query);
 /*$data = array();
 foreach ($result as $row) {
