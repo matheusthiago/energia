@@ -20,7 +20,7 @@ echo date();
 if(date('h-i')=='00-00'){
     
 }
-$sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
+/*$sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
     ROUND(SUM(potencia)/(3600000),2) as kwh
     from medidas 
     where(curdate()=date(horario) and hour(horario)=hour(now()))";
