@@ -16,7 +16,10 @@ $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+echo date();
+if(date('h-i')=='00-00'){
+    
+}
 $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
     ROUND(SUM(potencia)/(3600000),2) as kwh
     from medidas 
@@ -41,7 +44,7 @@ if ($result->num_rows > 0) {
     $insert = "insert into medidasHora (id,potencia) values ('".$id . "','".$kwh."')";
   
     if ($conn->query($insert)==TRUE) {
-        echo "Salvo com Sucesso";
+        echo "\n Salvo com Sucesso";
     } else {
         echo " Error" . $insert . $conn->error;
     }
