@@ -16,15 +16,13 @@ $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if ($mysqli->connect_error) {
     die("Falha na conecao com o bd: " . $mysqli->connect_error);
 }
-$query("select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id,
+$sql="select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id,
     ROUND(SUM(potencia)/(3600000),2) as kwh
     from medidas 
-    where(curdate()=date(horario) and hour(horario)=hour(now()))");
-if ($result = $mysqli->query($query)){
-    $info=$result->fetch_fields();
-    foreach ($info as $val){
-        printf("id:", $val->id);
-        printf("kw", $val->kwh);
+    where(curdate()=date(horario) and hour(horario)=hour(now()))";
+if ($result ->num_rows>0){
+    while($row=$result->$fetch_assoc()){
+        echo "id:".$row["id"]." kwh".$row["kwh"];
     }
     $result->close();
 }
