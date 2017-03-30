@@ -23,7 +23,7 @@ $sql = "select concat((hour(horario)),(day(horario)),(month(horario)),(year(hora
     where(curdate()=date(horario) and hour(horario)=hour(now()))";
 $result = $conn->query($sql);
 $mes = 9;
-$mes = $mes<9?'0'.$mes:$mes;
+$mes = $mes<10?'0'.$mes:$mes;
 echo $mes;
 if ($result->num_rows > 0) {
     // output data of each row
