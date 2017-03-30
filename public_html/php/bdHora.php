@@ -15,7 +15,7 @@ $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 
 $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
     ROUND(SUM(potencia)/(3600000),2) as kwh
@@ -23,22 +23,20 @@ $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as
     where(curdate()=date(horario) and hour(horario)=hour(now()))";
 $result = $conn->query($sql);
 
-
-function menorQue9($valor){
-    return $valor<10?'0'.$valor:$valor;
+function menorQue9($valor) {
+    return $valor < 10 ? '0' . $valor : $valor;
 }
+
 if ($result->num_rows > 0) {
-    
+
     // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $dia=menorQue9($row["dia"]);
-        $mes=menorQue9($row["mes"]);
-        $hora=menorQue9($row["hora"]);
-        $ano=menorQue9($row["ano"]);
-        $id=$hora.$dia.$mes.$ano;  
-        echo "id: ".$id."kwh:".$row["kwh"];
-        
-    }
+    $row = $result->fetch_assoc();
+    $dia = menorQue9($row["dia"]);
+    $mes = menorQue9($row["mes"]);
+    $hora = menorQue9($row["hora"]);
+    $ano = menorQue9($row["ano"]);
+    $id = $hora . $dia . $mes . $ano;
+    echo "id: " . $id . "kwh:" . $row["kwh"];
 } else {
     echo "0 results";
 }
