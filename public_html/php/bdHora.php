@@ -17,13 +17,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 echo date("H-i");
-if(date('H-i')=='00-00'){
-    
-}
-/*$sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
+if (date('H-i') == '00-00') {
+    $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
+    ROUND(SUM(potencia)/(3600000),2) as kwh
+    from medidas 
+    where(DATE_ADD(CURDATE(), INTERVAL -1 DAY)=date(horario) and hour(horario)= (hour(DATE_ADD((now()),INTERVAL -1 hour)))";
+} else {
+    $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
     ROUND(SUM(potencia)/(3600000),2) as kwh
     from medidas 
     where(curdate()=date(horario) and hour(horario)=hour(now()))";
+}
 $result = $conn->query($sql);
 
 function menorQue9($valor) {
@@ -39,11 +43,11 @@ if ($result->num_rows > 0) {
     $hora = menorQue9($row["hora"]);
     $ano = menorQue9($row["ano"]);
     $id = $hora . $dia . $mes . $ano;
-    $kwh=$row["kwh"];
+    $kwh = $row["kwh"];
     echo "id: " . $id . "kwh:" . $kwh;
-    $insert = "insert into medidasHora (id,potencia) values ('".$id . "','".$kwh."')";
-  
-    if ($conn->query($insert)==TRUE) {
+    $insert = "insert into medidasHora (id,potencia) values ('" . $id . "','" . $kwh . "')";
+
+    if ($conn->query($insert) == TRUE) {
         echo "\n Salvo com Sucesso";
     } else {
         echo " Error" . $insert . $conn->error;
