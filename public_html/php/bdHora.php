@@ -16,7 +16,6 @@ $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo date("H-i");
 if (date('H-i') == '00-00') {
     $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
     ROUND(SUM(potencia)/(3600000),4) as kwh
@@ -45,7 +44,7 @@ if ($result->num_rows > 0) {
     $ano = menorQue9($row["ano"]);
     $id = $hora . $dia . $mes . $ano;
     $kwh = $row["kwh"];
-    echo "id: " . $id . "kwh:" . $kwh;
+   // echo "id: " . $id . "kwh:" . $kwh;
     $insert = "insert into medidasHora (id,potencia) values ('" . $id . "','" . $kwh . "')";
 
     if ($conn->query($insert) == TRUE) {
