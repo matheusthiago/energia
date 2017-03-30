@@ -38,10 +38,11 @@ if ($result->num_rows > 0) {
     $id = $hora . $dia . $mes . $ano;
     echo "id: " . $id . "kwh:" . $row["kwh"];
     $insert = "insert into medidasHora (id,potencia) values (" . $id . "," . $kwh . ")";
-    if ($mysqli_query($conn, $insert)) {
+  
+    if ($conn->query($insert)==TRUE) {
         echo "Salvo com Sucesso";
     } else {
-        echo " Error" . $insert . mysqli_error($conn);
+        echo " Error" . $insert . $conn->error;
     }
 } else {
     echo "0 results";
