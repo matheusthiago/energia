@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
     ROUND(SUM(potencia)/(3600000),2) as kwh
     from medidas 
-    where(curdate()=date(horario) and hour(horario)=hour(now())-15)";
+    where(curdate()=date(horario) and hour(horario)=hour(now()))";
 $result = $conn->query($sql);
 
 
@@ -33,10 +33,9 @@ if ($result->num_rows > 0) {
         $dia=menorQue9($row["dia"]);
         $mes=menorQue9($row["mes"]);
         $hora=menorQue9($row["hora"]);
-        $id=$hora.$dia.$mes.$ano;
-        echo $id;
-        
-        //echo "id: " . $row["id"]."kwh:".$row["kwh"];
+        $ano=menorQue9($row["ano"]);
+        $id=$hora.$dia.$mes.$ano;  
+        echo "id: ".$id."kwh:".$row["kwh"];
         
     }
 } else {
