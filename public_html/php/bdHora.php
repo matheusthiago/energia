@@ -37,6 +37,7 @@ if ($result->num_rows > 0) {
     $ano = menorQue9($row["ano"]);
     $id = $hora . $dia . $mes . $ano;
     echo "id: " . $id . "kwh:" . $row["kwh"];
+    $insert="insert into medidasHora (id,potencia) values ('".$id."','".$kwh."')";
 } else {
     echo "0 results";
 }
