@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
     ROUND(SUM(potencia)/(3600000),2) as kwh
     from medidas 
-    where(curdate()=date(horario) and hour(horario)=hour(now()))";
+    where(curdate()=date(horario) and hour(horario)=hour(now())-15)";
 $result = $conn->query($sql);
 
 
