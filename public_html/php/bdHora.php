@@ -24,8 +24,12 @@ if ($result ->num_rows>0){
     while($row=$result->$fetch_assoc()){
         echo "id:".$row["id"]." kwh".$row["kwh"];
     }
-    $result->close();
+    }
+else {
+    echo "0 results";
 }
+    $mysqli->close();
+?>
 
 
 /*$query="select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id,
@@ -72,5 +76,3 @@ if ($mysqli->query($sql) === TRUE) {
     echo "Erro de salvamento no bd. Error: " . $sql . "<br>" . $mysqli->error;
 }
 */
-$mysqli->close();
-?>
