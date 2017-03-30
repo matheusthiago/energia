@@ -16,7 +16,7 @@ $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo date();
+echo getdate();
 if(date('h-i')=='00-00'){
     
 }
