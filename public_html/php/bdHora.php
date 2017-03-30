@@ -20,11 +20,12 @@ if ($conn->connect_error) {
 $sql = "select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id,
     ROUND(SUM(potencia)/(3600000),2) as kwh
     from medidas 
-    where(curdate()=date(horario) and hour(horario)=hour(now()))";
+    where(curdate()=date(horario) and hour(horario)=hour(now())-10)";
 $result = $conn->query($sql);
-$mes = 9;
-$mes = $mes<10?'0'.$mes:$mes;
-echo $mes;
+
+function menorQue9($valor){
+    return $valor<10?'0'.$valor:$valor;
+}
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
