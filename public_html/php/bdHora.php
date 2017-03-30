@@ -20,6 +20,7 @@ $sql="select concat((hour(horario)),(day(horario)),(month(horario)),(year(horari
     ROUND(SUM(potencia)/(3600000),2) as kwh
     from medidas 
     where(curdate()=date(horario) and hour(horario)=hour(now()))";
+$result=$mysqli->query($sql);
 if ($result ->num_rows>0){
     while($row=$result->$fetch_assoc()){
         echo "id:".$row["id"]." kwh".$row["kwh"];
