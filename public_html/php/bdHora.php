@@ -26,7 +26,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]."<br>";
+        echo "id: " . $row["id"]."kwh:".row["kwh"]."<br>";
     }
 } else {
     echo "0 results";
