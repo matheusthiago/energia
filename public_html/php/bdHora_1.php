@@ -16,11 +16,9 @@ $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-for ($i = 2; $i <= 10; $i++) {
-    echo "loop".$i;
 $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
              ROUND(SUM(potencia)/(3600000),4) AS kwh, HOUR(horario) as hora 
-            from medidas where DATE(horario)=(DATE_ADD(CURDATE(), INTERVAL -".$i." DAY)) GROUP BY hora ASC";
+            from medidas where DATE(horario)=(DATE_ADD(CURDATE(), INTERVAL -3 DAY)) GROUP BY hora ASC";
 
 
 $result = $conn->query($sql);
@@ -49,7 +47,6 @@ if ($result->num_rows > 0) {
     }
 } else {
     echo "0 results";
-}
 }
 $conn->close();
 
