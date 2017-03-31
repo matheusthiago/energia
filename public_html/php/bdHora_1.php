@@ -16,9 +16,9 @@ $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-    $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,"
-            . " ROUND(SUM(potencia)/(3600000),4) AS kwh, HOUR(horario) as hora "
-            . "from medidas where DATE(horario)=CURDATE() GROUP BY hora ASC";
+    $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
+             ROUND(SUM(potencia)/(3600000),4) AS kwh, HOUR(horario) as hora 
+            from medidas where DATE(horario)=CURDATE() GROUP BY hora ASC";
 
 $result = $conn->query($sql);
 
@@ -37,14 +37,14 @@ if ($result->num_rows > 0) {
         $id = $hora . $dia . $mes . $ano;
         $kwh = $row["kwh"];
         echo "id: " . $id . "kwh:" . $kwh."<br>";
-   //     $insert = "insert into medidasHora (id,potencia) values ('" . $id . "','" . $kwh . "')";
+   /* $insert = "insert into medidasHora (id,potencia) values ('" . $id . "','" . $kwh . "')";
 
         if ($conn->query($insert) == TRUE) {
             echo "\n Salvo com Sucesso";
         } else {
             echo " Error" . $insert . $conn->error;
         }
-    }
+   */ }
 } else {
     echo "0 results";
 }
