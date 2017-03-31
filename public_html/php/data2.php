@@ -20,8 +20,8 @@ if (!$mysqli) {
 //$query = sprintf("SELECT concat(DAY(horario), '/', MONTH(horario)) as diaMes, ROUND(SUM(potencia/1000),2) AS pot, Day(horario) AS day FROM medidas GROUP BY day");
 //$query = sprintf("SELECT concat(DAY(horario), '/', MONTH(horario)) as diaMes, DAY(horario) as dia, ROUND(SUM(potencia/1000),2) AS pot, 
 //ROUND(SUM(potencia/1000)/(3600*24)*(0.62378769),2) as preco FROM medidas group by dia");
-$query = sprintf("SELECT date(horario) as dia, ROUND(SUM(potencia)/(3600000)*(0.62378769 ),2) AS preco, HOUR(horario) as hora from medidas where DATE(horario)=CURDATE() GROUP BY hora ASC");
-$result = $mysqli->query($query);
+$query = sprintf("SELECT dia, ROUND(SUM(potencia)*(0.62378769 ),2) AS preco, hora, concat(`ano`,'-','0',`mes`,'-',`dia`), curdate() from medidasHora where concat(`ano`,'-','0',`mes`,'-',`dia`)=curdate() group by hora");
+$SELEresult = $mysqli->query($query);
 //loop through the returned data
 $data = array();
 foreach ($result as $row) {
