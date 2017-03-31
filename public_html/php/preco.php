@@ -16,7 +16,15 @@ if(!$mysqli){
 }
 
 //query to get data from the table
+//SELECT concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id, ROUND(SUM(potencia)/(3600000),2) AS kwh, HOUR(horario) as hora from medidas where hour(horario)=hour(now())-1 and curdate()=date(horario)
 //$query = sprintf("SELECT concat(DAY(horario), '/', MONTH(horario)) as diaMes, ROUND(SUM(potencia/1000),2) AS pot, Day(horario) AS day FROM medidas GROUP BY day");
+/*select concat((hour(horario)),(day(horario)),(month(horario)),(year(horario))) as id, ROUND(SUM(potencia)/(3600000)*0.6,2) as kwh, hour(horario), curdate()-1=date(horario)  from medidas where
+(curdate()=date(horario) and hour(horario)=hour(now())-1) 
+OR  
+((curdate()-1)=date(horario) and hour(horario)='0'
+
+ * )
+ */
 $query = sprintf("SELECT concat(DAY(horario), '/', MONTH(horario)) as diaMes, DAY(horario) as dia, ROUND(SUM(potencia/1000),2) AS pot, 
 ROUND(SUM(potencia)/(3600000)*(0.62378769),2) as preco FROM medidas group by dia");
 

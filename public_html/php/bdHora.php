@@ -18,12 +18,12 @@ if ($conn->connect_error) {
 }
 if (date('H-i') == '00-00') {
     $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
-    ROUND(SUM(potencia)/(3600000),4) as kwh
+    ROUND(SUM(potencia)/(3600000)) as kwh
     from medidas 
     where(DATE_ADD(CURDATE(), INTERVAL -1 DAY)=date(horario) and hour(horario)=(hour(DATE_ADD((now()),INTERVAL -1 hour))))";
 } else {
     $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
-    ROUND(SUM(potencia)/(3600000),4) as kwh
+    ROUND(SUM(potencia)/(3600000)) as kwh
     from medidas 
     where(curdate()=date(horario) and hour(horario)=(hour(DATE_ADD((now()),INTERVAL -1 hour))))";
 }
