@@ -29,10 +29,7 @@ if (date('H-i') == '00-00') {
 }
 $result = $conn->query($sql);
 
-function menorQue9($valor) {
-    return $valor < 10 ? '0' . $valor : $valor;
-    
-}
+
 
 if ($result->num_rows > 0) {
 
@@ -43,8 +40,8 @@ if ($result->num_rows > 0) {
     $hora = menorQue9($row["hora"]);
     $ano = menorQue9($row["ano"]);
     $kwh = $row["kwh"];
-    echo "'','".$kwh."','".$hora."','".$dia."','".$mes."','".$ano."'";
-    $insert = "insert into medidasHora(id,potencia, hora, dia, mes) values ('','".$kwh."','".$hora."','".$dia."','".$mes."','".$ano."')";
+    echo "'','" . $kwh . "','" . $hora . "','" . $dia . "','" . $mes . "','" . $ano . "'";
+    $insert = "insert into medidasHora(id,potencia, hora, dia, mes, ano) values ('','" . $kwh . "','" . $hora . "','" . $dia . "','" . $mes . "','" . $ano . "')";
 
     if ($conn->query($insert) == TRUE) {
         echo "\n Salvo com Sucesso";
@@ -55,4 +52,9 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 $conn->close();
+
+function menorQue9($valor) {
+    return $valor < 10 ? '0' . $valor : $valor;
+}
+
 ?>
