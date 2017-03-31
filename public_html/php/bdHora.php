@@ -28,9 +28,6 @@ if (date('H-i') == '00-00') {
     where(curdate()=date(horario) and hour(horario)=(hour(DATE_ADD((now()),INTERVAL -1 hour))))";
 }
 $result = $conn->query($sql);
-function menorQue9($valor) {
-    return $valor < 10 ? '0' . $valor : $valor;
-}
 
 
 if ($result->num_rows > 0) {
@@ -52,9 +49,9 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
-
-
 $conn->close();
+function menorQue9($valor) {
+    return $valor < 10 ? '0' . $valor : $valor;
+}
 
 ?>

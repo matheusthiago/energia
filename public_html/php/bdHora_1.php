@@ -17,20 +17,14 @@ $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+for($i=0;$i<=20;$i++){
 $sql = "select (hour(horario)) as hora,(day(horario)) as dia,(month(horario)) as mes,(year(horario)) as ano,
              (SUM(potencia)/(3600000) AS kwh, HOUR(horario) as hora 
-            from medidas where DATE(horario)=(DATE_ADD(CURDATE(), INTERVAL -3 DAY)) GROUP BY hora ASC";
-
+            from medidas where DATE(horario)=(DATE_ADD(CURDATE(), INTERVAL -1 DAY)) GROUP BY hora ASC";
 
 $result = $conn->query($sql);
-
-function menorQue9($valor) {
-    return $valor < 10 ? '0' . $valor : $valor;
-}
-
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        
         $dia = menorQue9($row["dia"]);
         $mes = menorQue9($row["mes"]);
         $hora = menorQue9($row["hora"]);
@@ -51,4 +45,7 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 
+function menorQue9($valor) {
+    return $valor < 10 ? '0' . $valor : $valor;
+}
 ?>
