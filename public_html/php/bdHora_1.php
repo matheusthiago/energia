@@ -1,6 +1,7 @@
 <?php
 
 //setting header to json
+//SELECT round(sum(potencia)*0.6,2) as tot, id as id, substring(id,3,2) from medidasHora group by substring(id,3,2)
 header('Content-Type: application/json');
 
 //database
