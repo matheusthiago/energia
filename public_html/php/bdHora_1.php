@@ -30,8 +30,6 @@ function menorQue9($valor) {
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        // output data of each row
-        $row = $result->fetch_assoc();
         $dia = menorQue9($row["dia"]);
         $mes = menorQue9($row["mes"]);
         $hora = menorQue9($row["hora"]);
@@ -50,10 +48,6 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-$sql='';
-$insert='';
-
 $conn->close();
-
 }
 ?>
