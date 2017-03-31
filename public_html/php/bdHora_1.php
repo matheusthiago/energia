@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
         $id = $hora . $dia . $mes . $ano;
         $kwh = $row["kwh"];
         echo "id: " . $id . "kwh:" . $kwh . "<br>";
-        $insert = "insert into medidasHora(id,potencia, hora, dia, mes, ano) values ('','" . $kwh . "','" . $hora . "','" . $dia . "','" . $mes . "','" . $ano . "')";
+        $insert = "insert into medidasHora(id,potencia, hora, dia, mes, ano) values ('".$id."'". $kwh . "','" . $hora . "','" . $dia . "','" . $mes . "','" . $ano . "')";
 
         if ($conn->query($insert) == TRUE) {
             echo "\n Salvo com Sucesso";
