@@ -18,11 +18,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 $sql = "select (hour(horario)) as hora,
-         (day(horario)) as dia,
+        (day(horario)) as dia,
         (month(horario)) as mes,
         (year(horario)) as ano,
-        SUM(potencia)/(3600000)) AS kwh,
-        HOUR(horario) as hora
+        (SUM(potencia)/(3600000)) AS kwh,
+        (HOUR(horario)) as hora
         from medidas 
         where date(horario) between '2017-02-20' and curdate() 
         group by hour(horario) , date(horario)";
