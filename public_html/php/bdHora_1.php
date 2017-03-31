@@ -1,8 +1,9 @@
 <?php
-for($i=0; $i<20; $i++){
+
 //setting header to json
 header('Content-Type: application/json');
-
+for ($i = 1; $i <= 10; $i++) {
+    echo "loop".$i;
 //database
 define('DB_HOST', 'localhost');
 define('DB_USERNAME', 'root');
