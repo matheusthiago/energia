@@ -29,8 +29,12 @@ $(document).ready(function () {
                 options: {
                     responsive: true,
                     tooltips: {
-                        mode: 'index'
-                                           },
+                        mode: 'dataset',
+                        callbacks: {
+                            title: function () {
+                                return config.data.datasets.label;
+                            }                        }
+                    },
                     scales: {
                         xAxes: [{
                                 display: true,
