@@ -15,7 +15,7 @@ $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if (!$mysqli) {
     die("Connection failed: " . $mysqli->error);
 }
-$query = sprintf("SELECT concat(dia,'/',mes) as diames, dia, round((sum(potencia))*(0.62378769),2) as preco from medidasHora group by dia, mes, ano order by dia, mes, ano asc limit 30");//execute query
+$query = sprintf("SELECT concat(dia,'/',mes) as diaMes, dia, round((sum(potencia))*(0.62378769),2) as preco from medidasHora group by dia, mes, ano order by dia, mes, ano asc limit 30");//execute query
 $result = $mysqli->query($query);
 //loop through the returned data
 $data = array();
