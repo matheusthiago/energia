@@ -12,7 +12,7 @@ $(document).ready(function () {
                 label.push(data[i].hora);
                 dado.push(data[i].preco);
                 dia.push(data[i].dia);
-                preco+=data[i].preco;
+                preco=(preco) + (data[i].preco);
             }
 
             var config = {
