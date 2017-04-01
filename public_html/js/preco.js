@@ -4,13 +4,13 @@ $(document).ready(function () {
         method: "GET",
         success: function (data) {
             console.log(data);
-            var preco;
+            var preco=0;
             var label = [];
             var dado = [];
             for (var i in data) {
                 label.push(data[i].diaMes);
                 dado.push(data[i].preco);
-                preco = preco + (parseFloat(data[i].preco));
+                preco=(preco) + parseFloat(data[i].preco);
             }
 
             var config = {
