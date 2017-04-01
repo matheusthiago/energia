@@ -18,7 +18,7 @@ $(document).ready(function () {
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Consumo total em '+ data[1].data+' é:'+ preco.toFixed(2)+' R$',
+                            label: 'Consumo total em '+ data[1].data+' é: '+ preco.toFixed(2)+' R$',
                             backgroundColor: 'rgba(91, 184, 93, 0.75)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(91, 184, 93, 1)',
