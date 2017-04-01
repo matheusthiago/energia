@@ -1,4 +1,4 @@
-/** parte que faz a conexão com o banco de dados */
+/** parte que faz a conexï¿½o com o banco de dados */
 var host= 'localhost';
 var user= 'root';
 var password= 'r007';
@@ -27,18 +27,18 @@ connection.connect(function (err) {
   console.log('primeiro elemento da tabela', rows[0]);
 });
 
-/** fim da conexão com o banco de dados **/
+/** fim da conexï¿½o com o banco de dados **/
 
-/** Express é um framework que permite criar  um app web com facilidade com node.js. */
+/** Express ï¿½ um framework que permite criar  um app web com facilidade com node.js. */
 var app = require("express")();
 var express = require("express");
 
-// Na pasta public é onde colocaremos o arquivo Chart.js
+// Na pasta public ï¿½ onde colocaremos o arquivo Chart.js
 app.use(express.static(__dirname + '/public'));
 
 var http = require("http").Server(app);
 
-// Socket.io é um biblioteca que permite estabelecer concexão cliente servidor em tempo real.
+// Socket.io ï¿½ um biblioteca que permite estabelecer concexï¿½o cliente servidor em tempo real.
 var io = require("socket.io")(http);
 var serialport = require("serialport");
 var SerialPort = serialport;
@@ -53,9 +53,9 @@ var mySocket;
  */
 
 /**
- * mySerial - cria uma porta serial para comunicação com o Arduíno, define a velocidade de 
- * comunicação e interpreta o pular linha.
- * /dev/ttyUSB0 porta serial onde o arduino está conectado
+ * mySerial - cria uma porta serial para comunicaï¿½ï¿½o com o Arduï¿½no, define a velocidade de 
+ * comunicaï¿½ï¿½o e interpreta o pular linha.
+ * /dev/ttyUSB0 porta serial onde o arduino estï¿½ conectado
  */
 
 var mySerial = new SerialPort("/dev/ttyUSB0", {
@@ -65,7 +65,7 @@ var mySerial = new SerialPort("/dev/ttyUSB0", {
 
 
 /**
- * mySerial.on - Verifiica conexão com o arduino e informa no console.
+ * mySerial.on - Verifiica conexï¿½o com o arduino e informa no console.
  */
 mySerial.on("open", function () {
     console.log("Conexao com o Arduino estabelecida!");
@@ -77,7 +77,7 @@ mySerial.on("open", function () {
 mySerial.on("data", function (data) {
     var d = new Date();
     var tempo = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-   connection.query('INSERT INTO '+database+'.'+table+' (horario, corrente,potencia) VALUES ("' + tempo + '", "' + (data * 220) + '", "' + data + '")',
+   connection.query('INSERT INTO '+database+'.'+table+' (horario, corrente,potencia) VALUES ("' + tempo + '", "' + data + '", "' + (data*220) + '")',
 function selectCb(err, results, fields) {
     if (err){
 	console.log(err);
@@ -96,7 +96,7 @@ function selectCb(err, results, fields) {
 });
 
 /**
- * io.on - Recebe conexão de cliente.
+ * io.on - Recebe conexï¿½o de cliente.
  */
 io.on("connection", function (socket) {
     console.log("User is connected!");
