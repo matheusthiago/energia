@@ -6,7 +6,7 @@ $(document).ready(function () {
             console.log(data);
             var label = [];
             var dado = []; 
-            var preco = 0; 
+            var preco = parseInt(0); 
             var dia=[];
             for (var i in data) {
                 label.push(data[i].hora);
