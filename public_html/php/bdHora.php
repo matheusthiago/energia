@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
     $ano = menorQue9($row["ano"]);
     $id=$hora.$dia.$mes.$hora.$ano;
     $kwh = $row["kwh"];
-    echo 'id: '.$id.' potencia '.$kwh."','" . $hora . "','" . $dia . "','" . $mes . "','" . $ano . "'";
+    echo 'id:  '.$id.' potencia '.$kwh."','" . $hora . "','" . $dia . "','" . $mes . "','" . $ano . "'";
     $insert = "insert into medidasHora(id,potencia, hora, dia, mes, ano) values ('".$id."','". $kwh . "','" . $hora . "','" . $dia . "','" . $mes . "','" . $ano . "')";
 
     if ($conn->query($insert) == TRUE) {
