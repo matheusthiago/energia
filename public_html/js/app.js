@@ -6,13 +6,13 @@ $(document).ready(function () {
             console.log(data);
             var label = [];
             var dado = []; 
-            var preco = parseInt(0); 
+            var preco = parseFloat(0); 
             var dia=[];
             for (var i in data) {
                 label.push(data[i].hora);
                 dado.push(data[i].preco);
                 dia.push(data[i].dia);
-                preco=(preco) + parseInt(data[i].preco);
+                preco=(preco) + parseFloat(data[i].preco);
             }
 
             var config = {
