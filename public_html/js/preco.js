@@ -13,7 +13,7 @@ $(document).ready(function () {
                 preco=(preco) + parseFloat(data[i].preco);
             }
 
-            var config = {
+            var config = { 
                 type: "bar",
                 data: {
                     labels: label,
