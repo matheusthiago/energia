@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var total;
+    
     $.ajax({
         url: CONEXAO + "/energia/public_html/php/data.php",
         method: "GET",
@@ -8,6 +8,7 @@ $(document).ready(function () {
             //alert('alerta');
             var label = [];
             var dado = [];
+            var total=0;
             for (var i in data) {
                 label.push(data[i].diaMes);
                 dado.push(data[i].preco);
