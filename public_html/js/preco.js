@@ -19,7 +19,7 @@ $(document).ready(function () {
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Total gasto entre dia'+data[1].diaMes+' até '+data.diaMes.top+': '+total.toFixed(2)+'R$',
+                            label: 'Total gasto entre dia'+data[1].diaMes+' até '+data.diaMes[data.length-1]+': '+total.toFixed(2)+'R$',
                             backgroundColor: 'rgba(11,98,165,0.50)',
                             borderColor: 'rgba(11,98,165,1)',
                             hoverBackgroundColor: 'rgba(11,98,165,1)',
