@@ -6,12 +6,13 @@ $(document).ready(function () {
             console.log(data);
             var label = [];
             var dado = []; 
-            var preco = []; 
+            var preco = 0; 
             var dia=[];
             for (var i in data) {
                 label.push(data[i].hora);
                 dado.push(data[i].preco);
                 dia.push(data[i].dia);
+                preco+=data[i];
             }
 
             var config = {
@@ -19,7 +20,7 @@ $(document).ready(function () {
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Consumo '+dia[1] +'R$',
+                            label: 'Consumo total no dia'+preco+'R$',
                             backgroundColor: 'rgba(91, 184, 93, 0.75)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(91, 184, 93, 1)',
