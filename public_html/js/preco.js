@@ -1,18 +1,16 @@
-﻿$(document).ready(function () {
-                var preco;
-
+$(document).ready(function () {
     $.ajax({
         url: CONEXAO + "/energia/public_html/php/data.php",
         method: "GET",
         success: function (data) {
             console.log(data);
-            //alert('alerta');
+            var preco;
             var label = [];
             var dado = [];
             for (var i in data) {
                 label.push(data[i].diaMes);
                 dado.push(data[i].preco);
-            preco=parseFloat(data[i].preco)
+                preco = preco + (parseFloat(data[i].preco));
             }
 
             var config = {
@@ -20,7 +18,7 @@
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Total gasto entre dia'+data[1].diaMes+' até '+data[data.length-1].diaMes+': '+preco.toFixed(2)+'R$',
+                            label: 'Total gasto entre dia' + data[1].diaMes + ' e ' + data[data.length - 1].diaMes + ': ' + preco.toFixed(2) + 'R$',
                             backgroundColor: 'rgba(11,98,165,0.50)',
                             borderColor: 'rgba(11,98,165,1)',
                             hoverBackgroundColor: 'rgba(11,98,165,1)',
