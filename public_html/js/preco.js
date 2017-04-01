@@ -7,10 +7,11 @@
             //alert('alerta');
             var label = [];
             var dado = [];
-            var preco = [];
+            var preco;
             for (var i in data) {
                 label.push(data[i].diaMes);
                 dado.push(data[i].preco);
+            preco=parseFloat(data[i].preco)
             }
 
             var config = {
@@ -18,7 +19,7 @@
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Total gasto por dia',
+                            label: 'Total gasto entre dia'+data[1]+' até '+data.top+': '+preco.toFixed(2)+'R$',
                             backgroundColor: 'rgba(11,98,165,0.50)',
                             borderColor: 'rgba(11,98,165,1)',
                             hoverBackgroundColor: 'rgba(11,98,165,1)',
