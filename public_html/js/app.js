@@ -29,7 +29,7 @@ $(document).ready(function () {
                 options: {
                     responsive: true,
                     tooltips: {
-                        mode: 'label',
+                        mode: 'index',
                         callbacks: {
                             title: function () {
                                 return config.data.datasets.label;
