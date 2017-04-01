@@ -7,11 +7,9 @@ $(document).ready(function () {
             var label = [];
             var dado = []; 
             var preco = parseFloat(0); 
-            var dia=[];
             for (var i in data) {
                 label.push(data[i].hora);
                 dado.push(data[i].preco);
-                dia.push(data[i].dia);
                 preco=(preco) + parseFloat(data[i].preco);
             }
            
@@ -20,7 +18,7 @@ $(document).ready(function () {
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Consumo total no dia é:'+ preco.toFixed(2)+' R$',
+                            label: 'Consumo total em '+ data[1].data+' é:'+ preco.toFixed(2)+' R$',
                             backgroundColor: 'rgba(91, 184, 93, 0.75)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(91, 184, 93, 1)',
