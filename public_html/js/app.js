@@ -14,13 +14,13 @@ $(document).ready(function () {
                 dia.push(data[i].dia);
                 preco=(preco) + parseFloat(data[i].preco);
             }
-            preco.toPrecision(2);
+           
             var config = {
                 type: "bar",
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Consumo total em '+data[1].dia+data[1].mes+':'+preco+'R$',
+                            label: 'Consumo total no dia é:'+ preco.toFixed(2)+'R$',
                             backgroundColor: 'rgba(91, 184, 93, 0.75)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(91, 184, 93, 1)',
