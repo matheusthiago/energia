@@ -30,10 +30,7 @@ $(document).ready(function () {
                     responsive: true,
                     tooltips: {
                         mode: 'point',
-                        callbacks: {
-                            title: function () {
-                                return config.data.datasets.label;
-                            }                        }
+                                }
                     },
                     scales: {
                         xAxes: [{
