@@ -14,7 +14,7 @@ $(document).ready(function () {
                 dia.push(data[i].dia);
                 preco=(preco) + parseFloat(data[i].preco);
             }
-
+            preco.toFixed(2)
             var config = {
                 type: "bar",
                 data: {
