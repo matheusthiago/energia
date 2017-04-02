@@ -18,7 +18,7 @@ $(document).ready(function () {
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Total gasto entre dia' + data[0].diaMes + ' e ' + data[data.length - 1].diaMes + ': R$' + preco.toFixed(2),
+                            label: 'Total gasto por dia',
                             backgroundColor: 'rgba(11,98,165,0.50)',
                             borderColor: 'rgba(11,98,165,1)',
                             hoverBackgroundColor: 'rgba(11,98,165,1)',
@@ -49,7 +49,7 @@ $(document).ready(function () {
                                 display: true,
                                 scaleLabel: {
                                     display: true,
-                                    labelString: 'Preco em reais (R$)'
+                                    labelString: 'Preço em reais (R$)'
                                 },
                                 ticks: {
                                     beginAtZero: true
