@@ -34,7 +34,7 @@ $(document).ready(function () {
                     },
                     title: {
                         display: true,
-                        text: 'Total gasto entre ' + data[0].diaMes+' e '+data[data.length-1].diaMes''+': R$' + preco.toFixed(2)
+                        text: 'Total gasto entre ' + data[0].diaMes+' e '+data[data.length-1].diaMes[data]+': R$' + preco.toFixed(2),
                     },
 
                     tooltips: {
