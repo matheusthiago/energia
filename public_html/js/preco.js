@@ -18,7 +18,7 @@ $(document).ready(function () {
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Total gasto por dia',
+                            label: 'Total gasto por dia: R$',
                             backgroundColor: 'rgba(11,98,165,0.50)',
                             borderColor: 'rgba(11,98,165,1)',
                             hoverBackgroundColor: 'rgba(11,98,165,1)',
