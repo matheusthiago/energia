@@ -18,7 +18,7 @@ $(document).ready(function () {
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Preço por hora' + data[0].data,
+                            label: 'Preço por hora',
                             backgroundColor: 'rgba(91, 184, 93, 0.75)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(91, 184, 93, 1)',
@@ -33,7 +33,7 @@ $(document).ready(function () {
                     },
                     title: {
                         display: true,
-                        text: 'Total gasto na data '+ data[0].data+' R$'+ preco,
+                        text: 'Total gasto na data '+ data[0].data+' R$'+ preco.toFixed(2)
                     },
 
                     tooltips: {
