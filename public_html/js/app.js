@@ -1,24 +1,24 @@
 $(document).ready(function () {
     $.ajax({
-        url: CONEXAO+"/energia/public_html/php/data2.php",
+        url: CONEXAO + "/energia/public_html/php/data2.php",
         method: "GET",
         success: function (data) {
             console.log(data);
             var label = [];
-            var dado = []; 
-            var preco = parseFloat(0); 
+            var dado = [];
+            var preco = parseFloat(0);
             for (var i in data) {
                 label.push(data[i].hora);
                 dado.push(data[i].preco);
-                preco=(preco) + parseFloat(data[i].preco);
+                preco = (preco) + parseFloat(data[i].preco);
             }
-           
+
             var config = {
                 type: "bar",
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Preço por hora na data '+ data[0].data,
+                            label: 'Preço por hora' + data[0].data,
                             backgroundColor: 'rgba(91, 184, 93, 0.75)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(91, 184, 93, 1)',
@@ -28,12 +28,20 @@ $(document).ready(function () {
                 },
                 options: {
                     responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Total gasto na data '+ data[0].data+' R$'+ preco,
+                    },
+
                     tooltips: {
                         mode: 'point',
                         callbacks: {
                             title: function () {
                                 return config.data.datasets.label;
-                            }                        }
+                            }}
                     },
                     scales: {
                         xAxes: [{
