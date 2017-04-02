@@ -28,6 +28,13 @@ $(document).ready(function () {
                 },
                 options: {
                     responsive: true,
+                    legend:{
+                        position:'top',
+                    },
+                    tittle:{
+                      display:true,
+                      text: 'Total gasto entre dia' + data[1].diaMes + ' e ' + data[data.length - 1].diaMes + ': ' + preco.toFixed(2) + 'R$',
+                    },
                     tooltips: {
                         mode: 'label',
                         callbacks: {
