@@ -35,7 +35,6 @@ $(document).ready(function () {
                         display: true,
                         text: 'Total gasto em '+ data[0].data+': R$'+ preco.toFixed(2)
                     },
-
                     tooltips: {
                         mode: 'point',
                         callbacks: {
