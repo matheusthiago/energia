@@ -4,21 +4,21 @@ $(document).ready(function () {
         method: "GET",
         success: function (data) {
             console.log(data);
-            var preco=0;
+            var preco = 0;
             var label = [];
             var dado = [];
             for (var i in data) {
                 label.push(data[i].diaMes);
                 dado.push(data[i].preco);
-                preco=(preco) + parseFloat(data[i].preco);
+                preco = (preco) + parseFloat(data[i].preco);
             }
 
-            var config = { 
+            var config = {
                 type: "bar",
                 data: {
                     labels: label,
                     datasets: [{
-                            label: 'Total gasto por dia: aaaR$',
+                            label: 'Total gasto por dia: R$',
                             backgroundColor: 'rgba(11,98,165,0.50)',
                             borderColor: 'rgba(11,98,165,1)',
                             hoverBackgroundColor: 'rgba(11,98,165,1)',
@@ -26,15 +26,17 @@ $(document).ready(function () {
                             data: dado
                         }]
                 },
+
                 options: {
                     responsive: true,
-                    legend:{
-                        position:'top',
+                    legend: {
+                        position: 'top',
                     },
-                    tittle:{
-                      display:true,
-                      text: 'Total gasto entre dia' + data[1].diaMes + ' e ' + data[data.length - 1].diaMes + ': ' + preco.toFixed(2) + 'R$',
+                    title: {
+                        display: true,
+                        text: 'Total gasto em ' + data[0].data + ': R$' + preco.toFixed(2)
                     },
+
                     tooltips: {
                         mode: 'label',
                         callbacks: {
