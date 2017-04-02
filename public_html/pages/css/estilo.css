@@ -18,6 +18,9 @@ and open the template in the editor.
 .panel-primary > a > .panel-heading{ 
     background-color: #337ab7;
 }
+.panel-info > a > .panel-heading{
+background-color: #d9edf7;
+}
 .panel-green > a > .panel-heading{
     background-color: #5cb85c;
 }
