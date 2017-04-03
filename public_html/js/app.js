@@ -33,11 +33,13 @@ $(document).ready(function () {
                     },
                     title: {
                         display: true,
-                        text: 'Total gasto em ' + data[0].data + ': R$' + preco.toFixed(2)
+                        text: 'Total gasto em '+ data[0].data+': R$'+ preco.toFixed(2)
                     },
                     tooltips: {
                         mode: 'point',
-
+                             title: {
+                                
+                            }}
                     },
                     scales: {
                         xAxes: [{
