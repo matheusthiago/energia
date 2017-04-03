@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 #wrap-mycanvas{
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: none;
 } 
 #chart-container{
     height: 550px;
