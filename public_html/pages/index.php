@@ -1,16 +1,6 @@
 <?php
-include_once '../php/db_connect.php';
-include_once '../php/functions.php';
-
-sec_session_start();
-
-if (login_check($mysqli) == true) {
-$logged = 'in';
-echo 'logado com sucesso bd';
-} else {
-echo 'não logado com sucesso bd';
-$logged = 'out';
-}
+include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
+protegePagina(); // Chama a função que protege a página
 ?>
 <!DOCTYPE html>
 <html lang="en">
