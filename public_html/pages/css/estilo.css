@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : mt
 */
 #wrap-mycanvas{
-    overflow-x: auto;
+    overflow-x: no-content;
     overflow-y: auto;
 } 
 #chart-container{
