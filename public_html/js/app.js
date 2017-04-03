@@ -29,21 +29,15 @@ $(document).ready(function () {
                 options: {
                     responsive: true,
                     legend: {
-                        position: 'rigth',
+                        position: 'top',
                     },
                     title: {
                         display: true,
-                        text: 'Total gasto em '+ data[0].data+': R$'+ preco.toFixed(2)
+                        text: 'Total gasto em ' + data[0].data + ': R$' + preco.toFixed(2)
                     },
                     tooltips: {
                         mode: 'point',
-                        callbacks: {
-                            beforeTitle: function(){
-                              return "tent "+label[config.data.datasets.data]; 
-                            },
-                            title: function () {
-                                return "t2"+label.name;
-                            }}
+
                     },
                     scales: {
                         xAxes: [{
