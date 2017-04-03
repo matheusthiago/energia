@@ -29,7 +29,7 @@ $(document).ready(function () {
                 options: {
                     responsive: true,
                     legend: {
-                        position: 'top',
+                        position: 'rigth',
                     },
                     title: {
                         display: true,
