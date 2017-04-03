@@ -33,7 +33,7 @@ $(document).ready(function () {
                     },
                     title: {
                         display: true,
-                        text: 'Total gasto em ' + data[0].datas +' - '+data[data.length-1].datas+': R$' + preco.toFixed(2)
+                        text: 'Total gasto nas ultimas 24 horas: R$' + preco.toFixed(2)
                     },
                     tooltips: {
                         mode: 'point',
