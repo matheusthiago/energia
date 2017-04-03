@@ -39,10 +39,10 @@ $(document).ready(function () {
                         mode: 'point',
                         callbacks: {
                             beforeTitle: function(){
-                              return "tent "+data[0].preco; 
+                              return "tent "+label[i]; 
                             },
                             title: function () {
-                                return "t2"+data.datasetIndex;
+                                return "t2"+label[datasetIndex];
                             }}
                     },
                     scales: {
