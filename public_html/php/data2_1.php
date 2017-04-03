@@ -23,7 +23,7 @@ if (!$mysqli) {
 
 //$query = sprintf("SELECT ROUND(SUM(potencia)*(0.62378769 ),2) AS preco, `hora`, CONCAT(`dia`,'-',`mes`,'-',`ano`) AS datas FROM medidasHora WHERE (DATE_ADD(STR_TO_DATE((CONCAT(`ano`,',',`mes`,',',`dia`,' ',`hora`)),'%Y,%m,%d %H'), INTERVAL 1 HOUR))>=(DATE_SUB(NOW(), INTERVAL 1 DAY)) GROUP BY `dia`, `hora`");
 //$query=sprintf("SELECT ROUND(SUM(potencia)*(0.62378769 ),2) AS preco, `hora`, CONCAT(`dia`,'-',`mes`,'-',`ano`) AS datas FROM medidasHora WHERE ((STR_TO_DATE((CONCAT(`ano`,',',`mes`,',',`dia`,' ',`hora`)),'%Y,%m,%d %H')))>=(DATE_SUB(NOW(), INTERVAL 1 DAY)) GROUP BY `dia`, `hora`");
-$query=sprintf("SELECT ROUND(SUM(potencia)*(0.62378769 ),2) AS preco, `hora`, STR_TO_DATE(CONCAT(`ano`,`mes`,`dia`,`hora`),'%Y%m%d%H') AS DATA FROM medidasHora GROUP BY `dia`, `hora`");
+$query=sprintf("SELECT ROUND(SUM(potencia)*(0.62378769 ),2) AS preco, `hora` medidasHora GROUP BY `dia`, `hora`");
 
 $result = $mysqli->query($query) or die(mysqli_error());
 
