@@ -38,6 +38,9 @@ $(document).ready(function () {
                     tooltips: {
                         mode: 'point',
                         callbacks: {
+                            beforeTitle: function(){
+                              return config.data.datasets.label;  
+                            },
                             title: function () {
                                 return config.data.datasets.label;
                             }}
