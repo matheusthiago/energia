@@ -12,14 +12,14 @@ and open the template in the editor.
     overflow-y: auto;
 } 
 #chart-container{
-    height: auto;
-    width: 700px;
+    height: 550px;
+    width: auto;
 }
 .panel-primary > a > .panel-heading{ 
     background-color: #337ab7;
 }
 .panel-info > a > .panel-heading{
-    background-color: #d9edf7;
+background-color: #d9edf7;
 }
 .panel-green > a > .panel-heading{
     background-color: #5cb85c;
@@ -40,18 +40,15 @@ and open the template in the editor.
 #page-wrapper a:hover .panel-heading{
     opacity: 0.8;
 }
-
 @media (min-width:992px){
     #chart-container{
-        width: 550px;
-        height: auto;
-
+        width: auto;
     }
 }
 @media (max-width:768px){
     #chart-container{
-        width: 550px;
-        height: auto;
+        width: auto;
+        height: 500px;
     }
 }
 @media (max-width:768px){
