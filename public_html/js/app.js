@@ -42,7 +42,7 @@ $(document).ready(function () {
                               return "tent "+label[i]; 
                             },
                             title: function () {
-                                return "t2"+label[datasetIndex];
+                                return "t2"+label.name;
                             }}
                     },
                     scales: {
