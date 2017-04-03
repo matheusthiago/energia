@@ -39,7 +39,7 @@ $(document).ready(function () {
                         mode: 'point',
                         callbacks: {
                             beforeTitle: function(){
-                              return "tent"+config.data.datasets.length; 
+                              return "tent"+config.data.datasets.index; 
                             },
                             title: function () {
                                 return config.data.datasets.label;
