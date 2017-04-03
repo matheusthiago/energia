@@ -48,7 +48,7 @@ background-color: #d9edf7;
 @media (max-width:1200px){
     #chart-container{
         width: 1000px;
-        height: 500px;
+        height: auto;
     }
 }
 @media (max-width:768px){
