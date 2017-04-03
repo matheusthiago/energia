@@ -12,8 +12,8 @@ and open the template in the editor.
     overflow-y: auto;
 } 
 #chart-container{
-    height: 550px;
-    width: auto;
+    height: auto;
+    width: 500;
 }
 .panel-primary > a > .panel-heading{ 
     background-color: #337ab7;
