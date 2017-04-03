@@ -8,7 +8,7 @@ $(document).ready(function () {
             var dado = [];
             var preco = parseFloat(0);
             for (var i in data) {
-                label.push(data[i].hora);
+                label.push(data[i].hora+":00");
                 dado.push(data[i].preco);
                 preco = (preco) + parseFloat(data[i].preco);
             }
