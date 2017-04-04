@@ -8,8 +8,8 @@ $campo=$_POST['ligar1'];
 if ($_POST['estado'] == "1") {
     //Imprime a mensagem no browser "Ligou o Amarelo"
     //função para escrever na porta serial o caracter "a"
-    fwrite($port, "a");
-    fclose();
+    fwrite(fopen("/dev/ttyUSB0", "w"), "a");
+    fclose("/dev/ttyUSB0");
 //$retorno = fread($port,10);
 }
 if ($_POST['estado'] == "2") {
