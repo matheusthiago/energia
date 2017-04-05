@@ -86,8 +86,6 @@ function selectCb(err, results, fields) {
 	else
         ;
 });
-/*
-
 /** Emite um evento e o objeto valor recebe data e **/
     io.emit("dadosArduino", {
         valor: data*220,
