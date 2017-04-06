@@ -88,7 +88,7 @@ function selectCb(err, results, fields) {
 });
 /** Emite um evento e o objeto valor recebe data e **/
     io.emit("dadosArduino", {
-        valor: data*220,
+        valor: data,
         tempo: d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()
     });
 });
