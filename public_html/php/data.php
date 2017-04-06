@@ -22,7 +22,7 @@ $data = array();
 foreach ($result as $row) {
     $data[] = $row;
 }
-//$data= array_slice($data , count($data)-30, 30);
+$data= array_slice($data , count($data)-30, 30);
 //free memory associated with result
 $result->close();
 
