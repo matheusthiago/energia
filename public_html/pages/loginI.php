@@ -18,7 +18,7 @@ if (login_check($mysqli) == true) {
     <head>
         <title>Secure Login: Log In</title>
         <script type="text/javascript" src="../js/sha512.js"></script> 
-        <script type="text/JavaScript" src="../js/forms.js"></script> 
+        <script type="text/javascript" src="../js/forms.js"></script> 
     </head>
     <body>
         <?php
@@ -35,7 +35,7 @@ if (login_check($mysqli) == true) {
                    value="Login" 
                    onclick="formhash(this.form, this.form.password);" /> 
         </form>
-        <p>If you don't have a login, please <a href="register.php">register</a></p>
+        <p>If you don't have a login, please <a href="../php/register.php">register</a></p>
         <p>If you are done, please <a href="../php/logout.php">log out</a>.</p>
         <p>You are currently logged <?php echo $logged ?>.</p>
     </body>
