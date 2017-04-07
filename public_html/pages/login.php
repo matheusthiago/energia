@@ -63,6 +63,7 @@ if (login_check($mysqli) == true) {
                         <div class="panel-body">
                             <form method="post" action="../php/process_login.php" name="login_form">
                                 <fieldset>
+                       
                                     <div class="form-group">
                                         <input class="form-control" placeholder="Digite o seu Usuário" name="email" type="text" maxlength=50 autofocus>
                                     </div>
