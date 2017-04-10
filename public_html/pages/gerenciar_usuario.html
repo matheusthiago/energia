@@ -412,8 +412,8 @@
         </div>
         <!-- /#wrapper -->
 
-        <!-- jQuery -->
-        <script src="../vendor/jquery/jquery.min.js"></script>
+        <!-- jQuery
+        <script src="../vendor/jquery/jquery.min.js"></script> -->
 
         <!-- Bootstrap Core JavaScript -->
         <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -421,80 +421,80 @@
         <!-- Metis Menu Plugin JavaScript -->
         <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-        <!-- DataTables JavaScript -->
+        <!-- DataTables JavaScript
         <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
         <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
         <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
- 
+ -->
         <!-- scripts para o uso dae edições nas tabelas-->
-        <script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"> </script>
+        <script src="../js/jquery-1.12.4.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script> 
+        <script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"> </script>
-        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"> </script>
-        <script src="../js/dataTables.editor.min.js"> </script>
-        
- 
+        <script src="../js/dataTables.editor.min.js"></script>
+
+
         <!-- Custom Theme JavaScript -->
         <script src="../dist/js/sb-admin-2.js"></script>
 
         <!-- Page-Level Demo Scripts - Tables - Use for reference -->
         <script>
-            var editor; // use a global for the submit and return data rendering in the examples
-            $(document).ready(function () {
-                editor = new $.fn.dataTable.Editor({
-                    ajax: "../php/users.php",
-                    table: "#example",
-                    fields: [{
-                            label: "id:",
-                            name: "id"
-                        },
-                        {
-                            label: "username:",
-                            name: "username"
-                        }, {
-                            label: "email:",
-                            name: "email"
-                        }, {
-                            label: "password",
-                            name: "password"
-                        }, {
-                            label: "salt",
-                            name: "salt"
-                        }
-                    ]
-                });
-                // Activate an inline edit on click of a table cell
-                $('#example').on('click', 'tbody td:not(:first-child)', function (e) {
-                    editor.inline(this);
-                });
-                $('#example').DataTable({
-                    dom: "Bfrtip",
-                    ajax: "../php/users.php",
-                    order: [[1, 'asc']],
-                    columns: [
-                        {
-                            data: null,
-                            defaultContent: '',
-                            className: 'select-checkbox',
-                            orderable: false
-                        },
-                        {data: "id"},
-                        {data: "username"},
-                        {data: "email"},
-                        {data: "password"},
-                        {data: "salt"}
-                    ],
-                    select: {
-                        style: 'os',
-                        selector: 'td:first-child'
-                    },
-                    buttons: [
-                        {extend: "create", editor: editor},
-                        {extend: "edit", editor: editor},
-                        {extend: "remove", editor: editor}
-                    ]
-                });
-            });
+var editor; // use a global for the submit and return data rendering in the examples
+$(document).ready(function () {
+    editor = new $.fn.dataTable.Editor({
+        ajax: "../php/users.php",
+        table: "#example",
+        fields: [{
+                label: "id:",
+                name: "id"
+            },
+            {
+                label: "username:",
+                name: "username"
+            }, {
+                label: "email:",
+                name: "email"
+            }, {
+                label: "password",
+                name: "password"
+            }, {
+                label: "salt",
+                name: "salt"
+            }
+        ]
+    });
+    // Activate an inline edit on click of a table cell
+    $('#example').on('click', 'tbody td:not(:first-child)', function (e) {
+        editor.inline(this);
+    });
+    $('#example').DataTable({
+        dom: "Bfrtip",
+        ajax: "../php/users.php",
+        order: [[1, 'asc']],
+        columns: [
+            {
+                data: null,
+                defaultContent: '',
+                className: 'select-checkbox',
+                orderable: false
+            },
+            {data: "id"},
+            {data: "username"},
+            {data: "email"},
+            {data: "password"},
+            {data: "salt"}
+        ],
+        select: {
+            style: 'os',
+            selector: 'td:first-child'
+        },
+        buttons: [
+            {extend: "create", editor: editor},
+            {extend: "edit", editor: editor},
+            {extend: "remove", editor: editor}
+        ]
+    });
+});
         </script>
 
     </body>
