@@ -384,19 +384,17 @@
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="example">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>id</th>
                                             <th>username</th>
                                             <th>email</th>
-                                            <th>password</th>
-                                            <th>salt</th>
                                         </tr>
                                     </thead>
                                 </table>
                                 <!-- /.table-responsive -->
-                            </div>
+                               </div>
                             <!-- /.panel-body -->
                         </div>
                         <!-- /.panel -->
@@ -404,99 +402,40 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-
-
+            
+              
             </div>
             <!-- /#page-wrapper -->
 
         </div>
         <!-- /#wrapper -->
 
-        <!-- jQuery-->
+        <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
 
-        <!-- scripts para o uso dae edições nas tabelas-->
-        <script src="../js/jquery-1.12.4.js"></script>
-        <script src="../js/jquery.dataTables.min.js"></script> 
-        <script src="../js/dataTables.buttons.min.js"></script>
-        <script src="../js/dataTables.select.min.js"></script>
-        <script src="../js/dataTables.editor.min.js"></script>
-        
-        
-        
         <!-- Bootstrap Core JavaScript -->
         <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
         <!-- Metis Menu Plugin JavaScript -->
         <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-        <!-- DataTables JavaScript
+        <!-- DataTables JavaScript -->
         <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-        <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-        <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
 
         <!-- Custom Theme JavaScript -->
         <script src="../dist/js/sb-admin-2.js"></script>
 
         <!-- Page-Level Demo Scripts - Tables - Use for reference -->
         <script>
-var editor; // use a global for the submit and return data rendering in the examples
-$(document).ready(function () {
-    editor = new $.fn.dataTable.Editor({
-        ajax: "../php/users.php",
-        table: "#example",
-        fields: [{
-                label: "id:",
-                name: "id"
-            },
-            {
-                label: "username:",
-                name: "username"
-            }, {
-                label: "email:",
-                name: "email"
-            }, {
-                label: "password",
-                name: "password"
-            }, {
-                label: "salt",
-                name: "salt"
-            }
-        ]
-    });
-    // Activate an inline edit on click of a table cell
-    $('#example').on('click', 'tbody td:not(:first-child)', function (e) {
-        editor.inline(this);
-    });
-    $('#example').DataTable({
-        dom: "Bfrtip",
-        ajax: "../php/users.php",
-        order: [[1, 'asc']],
-        columns: [
-            {
-                data: null,
-                defaultContent: '',
-                className: 'select-checkbox',
-                orderable: false
-            },
-            {data: "id"},
-            {data: "username"},
-            {data: "email"},
-            {data: "password"},
-            {data: "salt"}
-        ],
-        select: {
-            style: 'os',
-            selector: 'td:first-child'
-        },
-        buttons: [
-            {extend: "create", editor: editor},
-            {extend: "edit", editor: editor},
-            {extend: "remove", editor: editor}
-        ]
-    });
-});
+            $(document).ready(function () {
+                $('#dataTables-example').DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "ajax": "../php/users.php"
+                });
+            });
         </script>
 
     </body>
