@@ -719,7 +719,9 @@
         <script>
             $(document).ready(function () {
                 $('#dataTables-example').DataTable({
-                    responsive: true
+                    "processing": true,
+                    "serverSide": true,
+                    "ajax": "../php/users.php"
                 });
             });
         </script>
