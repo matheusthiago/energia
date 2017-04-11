@@ -1,11 +1,12 @@
 <?php
+
 require_once '../php_action/db_connect.php';
 $output = array('data' => array());
 $sql = "SELECT * FROM members";
 $query = $connect->query($sql);
 $x = 1;
 while ($row = $query->fetch_assoc()) {
-    /*$actionButton = '
+    $actionButton = '
     <div class="btn-group">
      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
      Action <span class="caret"></span>
@@ -16,14 +17,14 @@ while ($row = $query->fetch_assoc()) {
      </ul>
     </div>
     ';
-    */
+
     $output['data'][] = array(
         $x,
         $row['username'],
         $row['email'],
         $row['password']
     );
-    
+
     $x++;
 }
 // database connection close
