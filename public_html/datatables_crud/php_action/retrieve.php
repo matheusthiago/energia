@@ -1,12 +1,8 @@
 <?php
-
-require_once '/db_connect.php';
-
+require_once '../php_action/db_connect.php';
 $output = array('data' => array());
-
 $sql = "SELECT * FROM members";
 $query = $connect->query($sql);
-
 $x = 1;
 while ($row = $query->fetch_assoc()) {
     /*$actionButton = '
@@ -30,8 +26,6 @@ while ($row = $query->fetch_assoc()) {
     
     $x++;
 }
-
 // database connection close
 $connect->close();
-
 echo json_encode($output);
