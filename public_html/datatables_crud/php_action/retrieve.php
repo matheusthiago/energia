@@ -4,7 +4,7 @@ require_once '/db_connect.php';
 
 $output = array('data' => array());
 
-$sql = "SELECT * FROM secure_login.members";
+$sql = "SELECT * FROM members";
 $query = $connect->query($sql);
 
 $x = 1;
@@ -25,8 +25,7 @@ while ($row = $query->fetch_assoc()) {
         $x,
         $row['username'],
         $row['email'],
-        $row['password'],
-        $actionButton
+        $row['password']
     );
     
     $x++;
