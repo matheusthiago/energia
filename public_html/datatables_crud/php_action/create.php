@@ -1,6 +1,6 @@
 <?php
 
-require_once './db_connect.php'; // if form is submitted if ($_POST)
+require_once '../php_action/db_connect.php'; // if form is submitted if ($_POST)
 {
     $validator = array('success' => false, 'messages' => array());
     $username = $_POST['username'];
