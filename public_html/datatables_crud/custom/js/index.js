@@ -8,7 +8,7 @@ $(document).ready(function () {
     });
 
     $("#addMemberModalBtn").on('click', function () {
-        //reset the form
+        // reset the form
         $("#createMemberForm")[0].reset();
         // remove the error 
         $(".form-group").removeClass('has-error').removeClass('has-success');
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
             if (username == "") {
                 $("#username").closest('.form-group').addClass('has-error');
-                $("#username").after('The Username field is required');
+                $("#username").after('<p class="text-danger"> The Username field is required </p>');
             } else {
                 $("#username").closest('.form-group').removeClass('has-error');
                 $("#username").closest('.form-group').addClass('has-success');
@@ -133,13 +133,16 @@ function removeMember(id = null) {
 
 function editMember(id = null) {
 	if(id) {
+            
 		// remove the error 
 		$(".form-group").removeClass('has-error').removeClass('has-success');
 		$(".text-danger").remove();
 		// empty the message div
 		$(".edit-messages").html("");
+                
 		// remove the id
 		$("#member_id").remove();
+                
 		// fetch the member data
 		$.ajax({
 			url: 'php_action/getSelectedMember.php',
