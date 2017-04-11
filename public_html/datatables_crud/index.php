@@ -9,7 +9,7 @@
 
         <div class="container">
 
-            <div class="row">>DataTables</small> </h1> </center>
+            <div class="row">DataTables</small> </h1> </center>
                 <div class="col-md-12">
                     <center> <h1 class="page-header"> teste <small> teste datatabeles </small> </h1> </center>
                     <div class="removeMeessages"> 
@@ -45,21 +45,21 @@
                     <div class="modal-body">
                         <div class="messages"></div>
                         <div class="form-group">
-                            <label for="username" class="col-sm-2" control-label> username</label>
+                            <label for="username" class="col-sm-2" control-label> Username</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="username" name="username" placeholder="username">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Insira um user name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-sm-2" control-label> Email</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                <input type="text" class="form-control" id="email" name="email" placeholder=" insira um Email">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="password" class="col-sm-2" control-label> password</label>
+                            <label for="password" class="col-sm-2" control-label> Senha</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="password" name="password" placeholder="password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder=" insira uma senha">
                             </div>
                         </div>
                     </div>
