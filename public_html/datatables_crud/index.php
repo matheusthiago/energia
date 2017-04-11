@@ -99,9 +99,9 @@
         
         
         
-        <script type="text/javascript" src="/vendor/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/vendor/datatables/js/dataTables.material.min.js"</script>
+        <script type="text/javascript" src="/datatables_crud/assests/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="/datatables_crud/assests/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/datatables_crud/assests/datatables/datatables.min.js"</script>
         <script type="text/javascript" src="custom/js/index.js"></script>
 
 
