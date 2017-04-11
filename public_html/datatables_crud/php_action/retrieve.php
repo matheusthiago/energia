@@ -4,7 +4,7 @@ require_once '/db_connect.php';
 
 $output = array('data' => array());
 
-$sql = "SELECT * FROM members";
+$sql = "SELECT * FROM secure_login.nmembers";
 $query = $connect->query($sql);
 
 $x = 1;
