@@ -23,11 +23,9 @@ class Person extends CI_Controller {
 		foreach ($list as $person) {
 			$no++;
 			$row = array();
-			$row[] = $person->firstName;
-			$row[] = $person->lastName;
-			$row[] = $person->gender;
-			$row[] = $person->address;
-			$row[] = $person->dob;
+			$row[] = $person->userName;
+			$row[] = $person->email;
+			$row[] = $person->senha;
 
 			//add html for action
 			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_person('."'".$person->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
@@ -49,7 +47,6 @@ class Person extends CI_Controller {
 	public function ajax_edit($id)
 	{
 		$data = $this->person->get_by_id($id);
-		$data->dob = ($data->dob == '0000-00-00') ? '' : $data->dob; // if 0000-00-00 set tu empty for datepicker compatibility
 		echo json_encode($data);
 	}
 
@@ -57,11 +54,9 @@ class Person extends CI_Controller {
 	{
 		$this->_validate();
 		$data = array(
-				'firstName' => $this->input->post('firstName'),
-				'lastName' => $this->input->post('lastName'),
-				'gender' => $this->input->post('gender'),
-				'address' => $this->input->post('address'),
-				'dob' => $this->input->post('dob'),
+				'userName' => $this->input->post('userName'),
+				'email' => $this->input->post('email'),
+				'senha' => $this->input->post('senha'),
 			);
 		$insert = $this->person->save($data);
 		echo json_encode(array("status" => TRUE));
@@ -71,11 +66,10 @@ class Person extends CI_Controller {
 	{
 		$this->_validate();
 		$data = array(
-				'firstName' => $this->input->post('firstName'),
-				'lastName' => $this->input->post('lastName'),
-				'gender' => $this->input->post('gender'),
-				'address' => $this->input->post('address'),
-				'dob' => $this->input->post('dob'),
+				'userName' => $this->input->post('userName'),
+				'email' => $this->input->post('email'),
+				'senha' => $this->input->post('senha'),
+				
 			);
 		$this->person->update(array('id' => $this->input->post('id')), $data);
 		echo json_encode(array("status" => TRUE));
@@ -95,38 +89,24 @@ class Person extends CI_Controller {
 		$data['inputerror'] = array();
 		$data['status'] = TRUE;
 
-		if($this->input->post('firstName') == '')
+		if($this->input->post('userName') == '')
 		{
-			$data['inputerror'][] = 'firstName';
+			$data['inputerror'][] = 'userName';
 			$data['error_string'][] = 'First name is required';
 			$data['status'] = FALSE;
 		}
 
-		if($this->input->post('lastName') == '')
+		if($this->input->post('email') == '')
 		{
-			$data['inputerror'][] = 'lastName';
+			$data['inputerror'][] = 'email';
 			$data['error_string'][] = 'Last name is required';
 			$data['status'] = FALSE;
 		}
 
-		if($this->input->post('dob') == '')
+		if($this->input->post('senha') == '')
 		{
-			$data['inputerror'][] = 'dob';
-			$data['error_string'][] = 'Date of Birth is required';
-			$data['status'] = FALSE;
-		}
-
-		if($this->input->post('gender') == '')
-		{
-			$data['inputerror'][] = 'gender';
-			$data['error_string'][] = 'Please select gender';
-			$data['status'] = FALSE;
-		}
-
-		if($this->input->post('address') == '')
-		{
-			$data['inputerror'][] = 'address';
-			$data['error_string'][] = 'Addess is required';
+			$data['inputerror'][] = 'senha';
+			$data['error_string'][] = 'Please select senha';
 			$data['status'] = FALSE;
 		}
 
