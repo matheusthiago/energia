@@ -28,12 +28,10 @@
                     <table class="table" id="manageMemberTable">                  
                         <thead>
                             <tr>
-                                <th>S.no</th>
-                                <th>Name</th>                                                   
-                                <th>Address</th>
-                                <th>Contact</th>                                
-                                <th>Active</th>
-                                <th>Option</th>
+                                <th>id</th>
+                                <th>username</th>                                                   
+                                <th>email</th>
+                                <th>senha</th>                                
                             </tr>
                         </thead>
                     </table>
@@ -43,6 +41,41 @@
 
         <!-- add modal -->
         <div class="modal fade" tabindex="-1" role="dialog" id="addMember">
+              <div class="modal-dialog" role="document">
+                <div modal-content>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"><span class="glyphicon glyphicon-plus-sign"></span>  Add Member</h4>
+                    </div>
+                </div>
+                <form class="form-horizontal" action="php_action/create.php" method="POST" id="createMemberForm">
+                    <div class="modal-body">
+                        <div class="messages"></div>
+                        <div class="form-group">
+                            <label for="username" class="col-sm-2" control-label> Username</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Insira um user name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2" control-label> Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="email" name="email" placeholder=" insira um Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2" control-label> Senha</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="password" name="password" placeholder=" insira uma senha">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"> Close</button>
+                        <button type="submit" class="btn btn-primary"> Salvar </button> 
+                    </div>
+                </form>
+            </div>
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
