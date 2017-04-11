@@ -82,6 +82,8 @@
         </div><!-- /.modal -->
         <!-- /add modal -->
 
+        
+        
         <!-- jquery plugin -->
         <script type="text/javascript" src="assests/jquery/jquery.min.js"></script>
         <!-- bootstrap js -->
