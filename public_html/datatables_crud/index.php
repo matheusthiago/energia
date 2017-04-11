@@ -44,10 +44,10 @@
                 <form class="form-horizontal" action="php_action/create.php" method="POST" id="createMemberForm">
                     <div class="modal-body">
                         <div class="messages"></div>
-                        <div class="form-group"> 
+                        <div class="form-group">
                             <label for="username" class="col-sm-2" control-label> username</label>
-                            <div class="col-sm-10"
-                                 <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="username">
                             </div>
                         </div>
                         <div class="form-group">
