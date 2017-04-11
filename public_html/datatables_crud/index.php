@@ -68,8 +68,37 @@
                         <button type="submit" class="btn btn-primary"> Salvar </button> 
                     </div>
                 </form>
+
+
+
+
+
+
             </div>
         </div>
+
+        <!-- remove modal -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="removeMemberModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"><span class="glyphicon glyphicon-trash"></span> Remove Member</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you really want to remove ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="removeBtn">Save changes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- /remove modal -->
+        
+        
+        
         <script type="text/javascript" src="/vendor/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/vendor/datatables/js/dataTables.material.min.js"</script>
