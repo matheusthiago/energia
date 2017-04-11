@@ -9,7 +9,7 @@ $query = $connect->query($sql);
 
 $x = 1;
 while ($row = $query->fetch_assoc()) {
-    $actionButton = '
+    /*$actionButton = '
     <div class="btn-group">
      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
      Action <span class="caret"></span>
@@ -20,7 +20,7 @@ while ($row = $query->fetch_assoc()) {
      </ul>
     </div>
     ';
-    
+    */
     $output['data'][] = array(
         $x,
         $row['username'],
