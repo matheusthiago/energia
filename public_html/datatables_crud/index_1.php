@@ -149,13 +149,23 @@
         </div><!-- /.modal -->
         <!-- /edit modal -->
 
-    <!-- jquery plugin -->
+    <!-- jquery plugin 
     <script type="text/javascript" src="assests/jquery/jquery.min.js"></script>
-    <!-- bootstrap js -->
+    <!-- bootstrap js 
     <script type="text/javascript" src="assests/bootstrap/js/bootstrap.min.js"></script>
-    <!-- datatables js -->
+    <!-- datatables js 
     <script type="text/javascript" src="assests/datatables/datatables.min.js"></script>
-    <!-- include custom index.js -->
+    <!-- include custom index.js 
+    -->
+    <script type="text/javascript" src="../vendor/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--    <script type="text/javascript" src="../vendor/datatables/js/dataTables.min.js"></script> -->
+        
+     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+    
     <script type="text/javascript" src="custom/js/index.js"></script>
 
 </body>
