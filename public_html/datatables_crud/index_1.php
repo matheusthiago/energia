@@ -84,88 +84,79 @@
     </div><!-- /.modal -->
     <!-- /add modal -->
 
-       <!-- remove modal -->
-        <div class="modal fade" tabindex="-1" role="dialog" id="removeMemberModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title"><span class="glyphicon glyphicon-trash"></span> Remove Member</h4>
-                    </div>
+    <!-- remove modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="removeMemberModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-trash"></span> Remove Member</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Do you really want to remove ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="removeBtn">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- /remove modal -->
+
+    <!-- edit modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="editMemberModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-edit"></span> Edit Member</h4>
+                </div>
+
+                <form class="form-horizontal" action="php_action/update.php" method="POST" id="updateMemberForm">	      
+
                     <div class="modal-body">
-                        <p>Do you really want to remove ?</p>
+
+                        <div class="edit-messages"></div>
+
+                        <div class="form-group"> <!--/here teh addclass has-error will appear -->
+                            <label for="editUserame" class="col-sm-2 control-label">Username</label>
+                            <div class="col-sm-10"> 
+                                <input type="text" class="form-control" id="editUsername" name="editUsername" placeholder="Username">
+                                <!-- here the text will apper  -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editEmail" name="editEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPassword" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editPassword" name="editPassword" placeholder="Password">
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer editMemberModal">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="removeBtn">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-        <!-- /remove modal -->
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- /edit modal -->
 
-        <!-- edit modal -->
-        <div class="modal fade" tabindex="-1" role="dialog" id="editMemberModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title"><span class="glyphicon glyphicon-edit"></span> Edit Member</h4>
-                    </div>
-
-                    <form class="form-horizontal" action="php_action/update.php" method="POST" id="updateMemberForm">	      
-
-                        <div class="modal-body">
-
-                            <div class="edit-messages"></div>
-
-                            <div class="form-group"> <!--/here teh addclass has-error will appear -->
-                                <label for="editUserame" class="col-sm-2 control-label">Username</label>
-                                <div class="col-sm-10"> 
-                                    <input type="text" class="form-control" id="editUsername" name="editUsername" placeholder="Username">
-                                    <!-- here the text will apper  -->
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="editEmail" class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="editEmail" name="editEmail" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="editPassword" class="col-sm-2 control-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="editPassword" name="editPassword" placeholder="Password">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer editMemberModal">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </form>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-        <!-- /edit modal -->
-
-    <!-- jquery plugin 
+    <!-- jquery plugin -->
     <script type="text/javascript" src="assests/jquery/jquery.min.js"></script>
-    <!-- bootstrap js 
+    <!-- bootstrap js  -->
     <script type="text/javascript" src="assests/bootstrap/js/bootstrap.min.js"></script>
-    <!-- datatables js 
+    <!-- datatables js  -->
     <script type="text/javascript" src="assests/datatables/datatables.min.js"></script>
-    <!-- include custom index.js 
-    -->
-    <script type="text/javascript" src="../vendor/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- include custom index.js  -->
     <!--    <script type="text/javascript" src="../vendor/datatables/js/dataTables.min.js"></script> -->
-        
-     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-    
     <script type="text/javascript" src="custom/js/index.js"></script>
 
 </body>

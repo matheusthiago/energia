@@ -3,7 +3,7 @@ var manageMemberTable;
 
 $(document).ready(function () {
     manageMemberTable = $("#manageMemberTable").DataTable({
-        "ajax": "php_action/retrieve.php",
+        "ajax": "../../php_action/retrieve.php",
         "order": []
     });
 
@@ -100,7 +100,7 @@ function removeMember(id = null) {
         // click on remove button
         $("#removeBtn").unbind('click').bind('click', function () {
             $.ajax({
-                url: 'php_action/remove.php',
+                url: '../../php_action/remove.php',
                 type: 'post',
                 data: {member_id: id},
                 dataType: 'json',
@@ -145,7 +145,7 @@ function editMember(id = null) {
                 
 		// fetch the member data
 		$.ajax({
-			url: 'php_action/getSelectedMember.php',
+			url: '../../php_action/getSelectedMember.php',
 			type: 'post',
 			data: {member_id : id},
 			dataType: 'json',
