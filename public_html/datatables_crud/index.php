@@ -96,12 +96,16 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
         <!-- /remove modal -->
-        
-        
-        
-        <script type="text/javascript" src="/datatables_crud/assests/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="/datatables_crud/assests/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/datatables_crud/assests/datatables/datatables.min.js"</script>
+
+
+
+        <!-- jquery plugin -->
+        <script type="text/javascript" src="assests/jquery/jquery.min.js"></script>
+        <!-- bootstrap js -->
+        <script type="text/javascript" src="assests/bootstrap/js/bootstrap.min.js"></script>
+        <!-- datatables js -->
+        <script type="text/javascript" src="assests/datatables/datatables.min.js"></script>
+        <!-- include custom index.js -->
         <script type="text/javascript" src="custom/js/index.js"></script>
 
 
