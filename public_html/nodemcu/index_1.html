@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Acessando Web Server NodeMCU com Ajax</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+      function OnOff() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "http://192.168.0.31/LED=ONOFF");
+        xmlhttp.send();
+      }
+    </script>
+  </head>
+	<body>
+		<br/>
+		<div class="container" style="text-align: center;">
+			<div class="well">
+				<h2>Acessando Web Server NodeMCU com Ajax</h2>
+				<br/>
+				<a href="#" style="background-color: chartreuse"class="btn btn-default" role="button" onclick="OnOff();"><strong>Ligar/Desligar LED</strong></a>
+			</div>
+		</div>
+	</body>
+</html>
