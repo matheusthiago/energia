@@ -36,6 +36,15 @@
         <script src="../js/1e9e30aed7.js"></script>
         <!-- ****************************************************-->
 
+        <script>
+            function OnOff() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", "http://192.168.0.129/LED=ONOFF");
+                xmlhttp.send();
+            }
+        </script>
+
+
     </head>
     <body>
 
@@ -320,19 +329,45 @@
                             <div class="panel-heading">
                                 Controle
                             </div>
-                            <div class="panel-body">                        
+                            <div class="panel-body">
+
+
+
+                                <div class="col-lg-2 col-sm-4 col-xs-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Ligar led
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-lg-3"></div>
+                                            <div class="col-lg-1">
+                                                <i id="lamp" class="fa fa-lightbulb-o fa-5x fa"></i>
+                                            </div>
+                                        </div>
+                                        <a id="ligar0" style="color: rgba(0,0,0,1)" data-ico="lamp" data-status="text1" onclick="OnOff();" class="botao">
+                                            <div class="panel-footer">
+                                                <span class="pull-left" id="text1">Ligar</span>
+                                                <span class="pull-right"><i class="fa fa-power-off"></i></span>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+
                                 <div class="col-lg-2 col-sm-4 col-xs-6">
                                     <div class="panel panel-info">
                                         <div class="panel-heading">
                                             Ligar lâmpada
                                         </div>
-                                            <div class="panel-body">
-                                                <div class="col-lg-3"></div>
-                                                <div class="col-lg-1">
-                                                    <i id="lamp" class="fa fa-lightbulb-o fa-5x fa"></i>
-                                                </div>
+                                        <div class="panel-body">
+                                            <div class="col-lg-3"></div>
+                                            <div class="col-lg-1">
+                                                <i id="lamp" class="fa fa-lightbulb-o fa-5x fa"></i>
                                             </div>
-                                            <a id="ligar1" style="color: rgba(0,0,0,1)" data-ico="lamp" data-status="text1" class="botao">
+                                        </div>
+                                        <a id="ligar1" style="color: rgba(0,0,0,1)" data-ico="lamp" data-status="text1" class="botao">
                                             <div class="panel-footer">
                                                 <span class="pull-left" id="text1">Ligar</span>
                                                 <span class="pull-right"><i class="fa fa-power-off"></i></span>
