@@ -347,7 +347,7 @@
             function adddata(dado) {
                 myLineChart.data.datasets[0].data.shift();
                 myLineChart.data.labels.shift();
-                myLineChart.data.datasets[0].data.push(dado.valor);
+                myLineChart.data.datasets[0].data.push((dado.valor)*220);
                 myLineChart.data.labels.push(dado.tempo);
                 myLineChart.update();
 
