@@ -390,7 +390,7 @@
             var socket = io(CONEXAO + ":8080"); // ip servidor node
             //chamada da função dadosArduino que recebe os dados.
             socket.on("dadosArduino", function (dado) {
-                adddata(dado/220);
+                adddata(dado);
             });
         </script>
 
