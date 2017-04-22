@@ -18,10 +18,11 @@ $(document).ready(function () {
                 data: {
                     labels: label,
                     datasets: [{
-                            backgroundColor: 'rgba(91, 184, 93, 0.75)',
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgba(91, 184, 93, 1)',
-                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
+                            label: 'Total gasto por dia: R$',
+                            backgroundColor: 'rgba(11,98,165,0.50)',
+                            borderColor: 'rgba(11,98,165,1)',
+                            hoverBackgroundColor: 'rgba(11,98,165,1)',
+                            hoverBorderColor: 'rgba(11,98,165,1)',
                             data: dado
                         }]
                 },
