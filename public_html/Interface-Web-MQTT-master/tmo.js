@@ -43,7 +43,7 @@
 			};
 			mosq.ondisconnect = function(rc){
 				var p = document.createElement("p");
-				var url = "ws://192.168.0.105";
+				var url = "ws://192.168.0.100'";
 				
 				p.innerHTML = "A conexão com o broker foi perdida";
 				$("#debug").append(p);				
@@ -63,7 +63,7 @@
 			};
 		}
 		Page.prototype.connect = function(){
-			var url = "ws://192.168.0.105";
+			var url = "ws://192.168.0.100";
 			mosq.connect(url);
 		};
 		Page.prototype.disconnect = function(){
