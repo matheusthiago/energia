@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="mqttjs.js"></script>
+        <script type="text/javascript" src="http://www.hivemq.com/demos/websocket-client/js/mqttws31.js"> </script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.js"> </script>
+    </head>
+    <body>
+        <button onclick="client.connect(options);">1. Connect</button>
+        <button onclick="client.subscribe('testtopic/#', {qos: 2}); alert('Subscribed');">2. Subscribe</button>
+        <button onclick="publish('Hello Foo !', 'testtopic/bar', 2);">3. Publish</button>
+        <button onclick="client.disconnect();">(4. Disconnect)</button>
+        <div id="messages"></div>
+    </body>
+</html>
