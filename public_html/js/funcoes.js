@@ -115,7 +115,7 @@ jQuery(document).ready(function($){
             estado = 1;
         }
         $.ajax({
-            url: 'localhost:8181/esp8266/gpio'+ioAtual+"/"+estado,
+            url: 'http://localhost:8181/esp8266/gpio'+ioAtual+"/"+estado,
             type: 'get',
             dataType: 'json',
             success: function(data){
