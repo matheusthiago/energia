@@ -76,14 +76,16 @@ function mudaGrafico(canvas) {
     document.getElementById(canvas).innerHTML = a;
 }
 jQuery(document).ready(function($){
-    function muda(icone, texto) {
-        if ($('#'+texto).html() === "Ligar") {
+    function muda(item, indice) {
+        var id = indice.substring(5);
+        var icone = $('#ligar'+id).attr('data-ico');
+        if (item.state=="False") {
             $('#'+icone).css({color:'#f0ad4e'});
-            $('#'+texto).html("Desligar");
+            $('#text'+id).html("Desligar");
 
-        } else if($('#'+texto).html() === "Desligar") {
+        } else if(item.state=="True") {
             $('#'+icone).css({color:'#111111'});
-            $('#'+texto).html("Ligar");
+            $('#text'+texto).html("Ligar");
         }
     }
     function atualizaStatus(itens){
@@ -105,16 +107,20 @@ jQuery(document).ready(function($){
     $('.botao').click(function(e){
         e.preventDefault();
         var status = $(this).attr('data-status');
-        muda($(this).attr('data-ico'), status);
+        var ioAtual = status.substring(4);
+        var estado;
+        if ($('#'+status).html() === "Ligar") {
+            estado = 0;
+        }else if($('#'+status).html() === "Desligar") {
+            estado = 1;
+        }
         $.ajax({
-            url: 'controle.php',
-            type: 'post',
+            url: 'http://192.168.0.105:8181/esp8266/gpio'+ioAtual+"/"+estado,
+            type: 'get',
             dataType: 'json',
-            data: {'estado': status.substring(4)},
             success: function(data){
-                if(data.erro==''){
-                    //atualizaStatus(data.retorno);
-                }
+                data.forEach(muda);
+                
             }
         });
     });
