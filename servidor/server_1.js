@@ -8,7 +8,6 @@ var pool      =    mysql.createPool({
     user     : 'root',
     password : 'r007',
     database : 'energy',
-    debug    :  false
 });
 
 function handle_database(req,res) {
