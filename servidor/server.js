@@ -17,14 +17,8 @@ connection.connect(function (err) {
     if (err) {
         console.error('error connecting: ' + err.stack);
         return;
-    }
+    }else
     console.log('database is connected as id ' + connection.threadId);
-});
-
-/*connection.query('SELECT * FROM `medidas` ORDER BY `horario` ASC LIMIT 5', function(err, rows, fields) {
-  if (err) throw err;
-  timeout: 40000 
-  console.log('primeiro elemento da tabela', rows[0]);
 });
 
 /** fim da conex�o com o banco de dados **/
@@ -32,25 +26,14 @@ connection.connect(function (err) {
 /** Express � um framework que permite criar  um app web com facilidade com node.js. */
 var app = require("express")();
 var express = require("express");
-
 // Na pasta public � onde colocaremos o arquivo Chart.js
 app.use(express.static(__dirname + '/public'));
-
 var http = require("http").Server(app);
-
 // Socket.io � um biblioteca que permite estabelecer concex�o cliente servidor em tempo real.
 var io = require("socket.io")(http);
 var serialport = require("serialport");
 var SerialPort = serialport;
-
 var mySocket;
-
-/**
- * app.get - 
- app.get("/", function(req, res){
- res.sendFile(__dirname +'/index.html');
- });
- */
 
 /**
  * mySerial - cria uma porta serial para comunica��o com o Ardu�no, define a velocidade de 
@@ -62,7 +45,6 @@ var mySerial = new SerialPort("/dev/ttyUSB0", {
  	baudrate : 9600,
  	parser : serialport.parsers.readline("\n")
  });
-
 
 /**
  * mySerial.on - Verifiica conex�o com o arduino e informa no console.
