@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     host: host,
     user: user,
     password: password,
-    database: database,
+    database: database
 });
 
 connection.connect(function (err) {
@@ -21,12 +21,6 @@ connection.connect(function (err) {
         console.log('database is connected as id ' + connection.threadId);
 });
 
-connection.query('SELECT 1', function(err, rows, fields)   
-{  
-  if (err) throw err;  
-  
-  console.log(rows[0]);  
-});
 /** fim da conex�o com o banco de dados **/
 
 /** Express � um framework que permite criar  um app web com facilidade com node.js. */
@@ -65,7 +59,7 @@ mySerial.on("open", function () {
 mySerial.on("data", function (data) {
     var d = new Date();
     var tempo = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-    connection.query('INSERT INTO ' + database + '.' + table + ' (horario, corrente,potencia) VALUES ("' + tempo + '", "' + data + '", "' + (data * 220) + ',"")',
+    connection.query('INSERT INTO ' + database + '.' + table + ' (horario, corrente,potencia) VALUES ("' + tempo + '", "' + data + '", "' + (data * 220) + '")',
             function selectCb(err, results, fields) {
                 if (err) {
                     console.log(err);
