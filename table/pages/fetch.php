@@ -28,7 +28,8 @@ foreach ($result as $row) {
     $sub_array[] = $row["email"];
     $sub_array[] = $row["nivel"];
     $sub_array[] = $row["senha"];
-    $sub_array[] = '<button type="button" name="update" id="' . $row["id"] . '" class="btn btn-outline btn-default btn-xs update"><i class="fa fa-edit"></i>Update</button> <button type="button" name="delete" id="' . $row["id"] . '" class="btn btn-default btn-xs delete"><i class="fa fa-times"></i> delete</button>';
+    $sub_array[] = '<button type="button" name="update" id="' . $row["id"] . '" class="btn btn-outline btn-default btn-xs update"><i class="fa fa-edit"></i>Update</button>'
+            . '<button type="button" name="delete" id="' . $row["id"] . '" class="btn btn-default btn-xs delete"><i class="fa fa-times"></i> delete</button>';
     $data[] = $sub_array;
 }
 $output = array(
@@ -38,4 +39,3 @@ $output = array(
     "data" => $data
 );
 echo json_encode($output);
-?>
