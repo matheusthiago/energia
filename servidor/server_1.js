@@ -1,31 +1,42 @@
-/** parte que faz a conex�o com o banco de dados */
-var host = 'localhost';
-var user = 'root';
-var password = 'r007';
-var database = 'energy';
-var table = 'medidas';
+var express   =    require("express");
+var mysql     =    require('mysql');
+var app       =    express();
 
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: host,
-    user: user,
-    password: password,
-    database: database
+var pool      =    mysql.createPool({
+    connectionLimit : 100, //important
+    host     : 'localhost',
+    user     : 'root',
+    password : 'r007',
+    database : 'energy',
+    debug    :  false
 });
 
-connection.connect(function (err) {
-    if (err) {
-        console.error('error connecting: ' + err.stack);
-        return;
-    } else
-        console.log('database is connected as id ' + connection.threadId);
+function handle_database(req,res) {
+    
+    pool.getConnection(function(err,connection){
+        if (err) {
+          res.json({"code" : 100, "status" : "Error in connection database"});
+          return;
+        }   
+
+        console.log('connected as id ' + connection.threadId);
+        
+        connection.query("insert into medidas values (2017-03-11 00:00:00,1,1)",function(err,rows){
+            connection.release();
+            if(!err) {
+                res.json(rows);
+            }           
+        });
+
+        connection.on('error', function(err) {      
+              res.json({"code" : 100, "status" : "Error in connection database"});
+              return;     
+        });
+  });
+}
+
+app.get("/",function(req,res){-
+        handle_database(req,res);
 });
 
-connection.query('SELECT * FROM medidas', function(err, rows, fields)   
-{  
-  if (err) throw err;  
-  
-  console.log(rows[0]);  
-});  
-  
-connection.end();  
+app.listen(3000);
