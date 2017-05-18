@@ -21,7 +21,7 @@ connection.connect(function (err) {
         console.log('database is connected as id ' + connection.threadId);
 });
 
-connection.query('SELECT * FROM employees', function(err, rows, fields)   
+connection.query('SELECT * FROM medidas', function(err, rows, fields)   
 {  
   if (err) throw err;  
   
