@@ -2,6 +2,7 @@
 
 //setting header to json
 header('Content-Type: application/json');
+////SELECT ROUND(SUM(potencia)*(0.588),2) AS preco, sum(potencia) FROM medidasHora WHERE (mes=04 and dia>=07) OR (mes=5 and dia<=9)
 //database
 define('DB_HOST', 'localhost');
 define('DB_USERNAME', 'root');

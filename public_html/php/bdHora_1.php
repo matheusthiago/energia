@@ -1,6 +1,7 @@
 <?php
 
 //setting header to json
+//SELECT ROUND(SUM(potencia)*(0.588),2) AS preco, sum(potencia) FROM medidasHora WHERE (mes=04 and dia>=07) OR (mes=5 and dia<=9)
 //SELECT round(sum(potencia)*0.6,2) as tot, id as id, substring(id,3,2) from medidasHora group by substring(id,3,2)
 header('Content-Type: application/json');
 
