@@ -11,8 +11,6 @@ var connection = mysql.createConnection({
     user: user,
     password: password,
     database: database,
-    interactive_timeout: 10000,
-    connectTimeout: 0 
 });
 
 connection.connect(function (err) {
@@ -23,6 +21,12 @@ connection.connect(function (err) {
         console.log('database is connected as id ' + connection.threadId);
 });
 
+connection.query('SELECT 1', function(err, rows, fields)   
+{  
+  if (err) throw err;  
+  
+  console.log(rows[0]);  
+});
 /** fim da conex�o com o banco de dados **/
 
 /** Express � um framework que permite criar  um app web com facilidade com node.js. */
