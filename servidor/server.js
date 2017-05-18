@@ -59,7 +59,14 @@ mySerial.on("open", function () {
 mySerial.on("data", function (data) {
     var d = new Date();
     var tempo = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-    connection.query('INSERT INTO ' + database + '.' + table + ' (horario, corrente,potencia) VALUES ("' + tempo + '", "' + data + '", "' + (data * 220) + '")');
+    connection.query('INSERT INTO ' + database + '.' + table + ' (horario, corrente,potencia) VALUES ("' + tempo + '", "' + data + '", "' + (data * 220) + '")',
+            function selectCb(err, results, fields) {
+                if (err) {
+                    console.log(err);
+                    throw err;
+                } else
+                    ;
+            });
     /** Emite um evento e o objeto valor recebe data e **/
     io.emit("dadosArduino", {
         valor: data,
