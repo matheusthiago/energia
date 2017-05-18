@@ -1,9 +1,9 @@
 /** parte que faz a conex�o com o banco de dados */
-var host= 'localhost';
-var user= 'root';
-var password= 'r007';
-var database= 'energy';
-var table= 'medidas';
+var host = 'localhost';
+var user = 'root';
+var password = 'r007';
+var database = 'energy';
+var table = 'medidas';
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
@@ -17,8 +17,8 @@ connection.connect(function (err) {
     if (err) {
         console.error('error connecting: ' + err.stack);
         return;
-    }else
-    console.log('database is connected as id ' + connection.threadId);
+    } else
+        console.log('database is connected as id ' + connection.threadId);
 });
 
 /** fim da conex�o com o banco de dados **/
@@ -42,9 +42,9 @@ var mySocket;
  */
 
 var mySerial = new SerialPort("/dev/ttyUSB0", {
- 	baudrate : 9600,
- 	parser : serialport.parsers.readline("\n")
- });
+    baudrate: 9600,
+    parser: serialport.parsers.readline("\n")
+});
 
 /**
  * mySerial.on - Verifiica conex�o com o arduino e informa no console.
@@ -59,16 +59,8 @@ mySerial.on("open", function () {
 mySerial.on("data", function (data) {
     var d = new Date();
     var tempo = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-   connection.query('INSERT INTO '+database+'.'+table+' (horario, corrente,potencia) VALUES ("' + tempo + '", "' + data + '", "' + (data*220) + '")',
-function selectCb(err, results, fields) {
-    if (err){
-	console.log(err);
-        throw err;
-    }
-	else
-        ;
-});
-/** Emite um evento e o objeto valor recebe data e **/
+    connection.query('INSERT INTO ' + database + '.' + table + ' (horario, corrente,potencia) VALUES ("' + tempo + '", "' + data + '", "' + (data * 220) + '")');
+    /** Emite um evento e o objeto valor recebe data e **/
     io.emit("dadosArduino", {
         valor: data,
         tempo: d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()
