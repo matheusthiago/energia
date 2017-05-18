@@ -6,7 +6,8 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Gerenciamento de Usuários</title>
-        <script src="../vendor/jquery/jquery.min.js"></script> 
+      <!--  <script src="../vendor/jquery/jquery.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- MetisMenu CSS 
