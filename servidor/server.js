@@ -10,7 +10,9 @@ var connection = mysql.createConnection({
     host: host,
     user: user,
     password: password,
-    database: database
+    database: database,
+    interactive_timeout: 10000,
+    connectTimeout: 0 
 });
 
 connection.connect(function (err) {
