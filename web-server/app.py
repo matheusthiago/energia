@@ -14,7 +14,10 @@ mqttc.loop_start()
 # Create a dictionary called pins to store the pin number, name, and pin state:
 pins = {
    4 : {'name' : 'GPIO 4', 'board' : 'esp8266', 'topic' : 'esp8266/4', 'state' : 'False'},
-   5 : {'name' : 'GPIO 5', 'board' : 'esp8266', 'topic' : 'esp8266/5', 'state' : 'False'}
+   5 : {'name' : 'GPIO 5', 'board' : 'esp8266', 'topic' : 'esp8266/5', 'state' : 'False'},
+   3 : {'name' : 'GPIO 3', 'board' : 'esp8266', 'topic' : 'esp8266/3', 'state' : 'False'},
+   2 : {'name' : 'GPIO 2', 'board' : 'esp8266', 'topic' : 'esp8266/2', 'state' : 'False'}
+
    }
 
 # Put the pin dictionary into the template data dictionary:
