@@ -7,10 +7,12 @@ $(document).ready(function () {
             var preco = 0;
             var label = [];
             var dado = [];
+            var pot=0;
             for (var i in data) {
                 label.push(data[i].diaMes);
                 dado.push(data[i].preco);
                 preco = (preco) + parseFloat(data[i].preco);
+                pot = (pot)+ parseFloat(data[i].pot);
             }
 
             var config = {
@@ -30,11 +32,11 @@ $(document).ready(function () {
                 options: {
                     responsive: true,
                     legend: {
-                        position: 'top',
+                        position: 'top'
                     },
                     title: {
                         display: true,
-                        text: 'Total gasto entre ' + data[0].diaMes+' e '+data[data.length-1].diaMes+': R$' + preco.toFixed(2),
+                        text: 'Total gasto entre ' + data[0].diaMes+' e '+data[data.length-1].diaMes+': R$' + preco.toFixed(2)+' total potencia'+pot
                     },
 
                     tooltips: {
