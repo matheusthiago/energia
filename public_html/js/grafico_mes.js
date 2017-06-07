@@ -36,7 +36,7 @@ $(document).ready(function () {
                     },
                     title: {
                         display: true,
-                        text: 'Total gasto entre ' + data[0].diaMes+' e '+data[data.length-1].diaMes+': R$' + preco.toFixed(2)+'\n\Total Potencia Consumida:'+pot.toFixed(4)+'kWh'
+                        text: 'Total gasto entre ' + data[0].diaMes+' e '+data[data.length-1].diaMes+': R$' + preco.toFixed(2)+'\n\Total Potencia Consumida:'+pot.toFixed(2)+'kWh'
                     },
 
                     tooltips: {
