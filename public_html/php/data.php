@@ -14,7 +14,9 @@ if (!$mysqli) {
 }
 //$query = sprintf("SELECT concat(dia,'/',mes) as diaMes, dia, round((sum(potencia))*(0.62378769),2) as preco from medidasHora group by dia, mes, ano order by ano asc, mes asc, dia asc"); //execute query
 //$query = sprintf("SELECT concat(dia,'/',mes) as diaMes, dia, ROUND(SUM(potencia)*(0.58847192),2) AS preco, sum(potencia) AS pot  FROM medidasHora WHERE (mes=04 and dia>=07) OR (mes=5 and dia<=9)group by dia, mes, ano order by ano asc, mes asc, dia asc");
-$query= sprintf("SELECT concat(dia,'/',mes) as diaMes, dia, ROUND(SUM(potencia)*(0.61342401),2) AS preco, sum(potencia) AS pot FROM medidasHora WHERE (mes=03 and dia>=09) OR (mes=4 and dia<=07)group by dia, mes, ano order by ano asc, mes asc, dia asc");
+//$query= sprintf("SELECT concat(dia,'/',mes) as diaMes, dia, ROUND(SUM(potencia)*(0.61342401),2) AS preco, sum(potencia) AS pot FROM medidasHora WHERE (mes=03 and dia>=09) OR (mes=4 and dia<=07)group by dia, mes, ano order by ano asc, mes asc, dia asc");
+$query= sprintf("SELECT concat(dia,'/',mes) as diaMes, dia, ROUND(SUM(potencia)*(0.61342401),2) AS preco, sum(potencia) AS pot FROM medidasHora WHERE (mes=05 and dia>09) OR (mes=6 and dia<=08)group by dia, mes, ano order by ano asc, mes asc, dia asc");
+
 $result = $mysqli->query($query);
 //loop through the returned data
 $data = array();
