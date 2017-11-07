@@ -14,7 +14,7 @@ if (!$mysqli) {
     die("Connection failed: " . $mysqli->error);
 }
 //query to get data from the table
-$query = "SELECT ROUND(SUM(potencia)*(0.62378769 ),2) AS preco, concat(hora,':00') as hora, CONCAT(`dia`,'-',`mes`,'-',`ano`) AS datas FROM medidasHora WHERE (DATE_ADD(STR_TO_DATE((CONCAT(`ano`,',',`mes`,',',`dia`,' ',`hora`)),'%Y,%m,%d %H'), INTERVAL 1 HOUR))>=(DATE_SUB(NOW(), INTERVAL 1 DAY)) GROUP BY `dia`, `hora`";
+$query = "SELECT ROUND(SUM(potencia)*(0.62378769 ),2) AS preco, concat(hora,':00') as hora, CONCAT(`dia`,'-',`mes`,'-',`ano`) AS datas FROM medidasHora WHERE (DATE_ADD(STR_TO_DATE((CONCAT(`ano`,',',`mes`,',',`dia`,' ',`hora`)),'%Y,%m,%d %H'), INTERVAL 1 HOUR))>=(DATE_SUB(NOW(), INTERVAL 2 DAY)) GROUP BY `dia`, `hora`";
 $result = $mysqli->query($query) or die(mysqli_error());
 //loop through the returned data
 $data = array();
