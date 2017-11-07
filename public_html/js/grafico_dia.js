@@ -14,7 +14,7 @@ $(document).ready(function () {
             }
 
             var config = {
-                type: "line",
+                type: "bar",
                 data: {
                     labels: label,
                     datasets: [{
